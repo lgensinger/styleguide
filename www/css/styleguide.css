@@ -1,0 +1,301 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*************************************** styleguide STYLE ***************************************/
+
+/* Highest styleguide specific styling. */
+
+/* !IMPORTS
+/* !GLOBALS
+/* !SECTIONS
+/* !CUSTOM
+/* --- !overlay
+/* --- !overlay transition
+
+/******************************* !IMPORTS *******************************/
+@import url("main.css");
+@import url("light.css");
+@import url("directives.css");
+
+/******************************* !GLOBALS *******************************/
+
+/* main content area */
+main > section {
+    
+    position: relative;
+    top: 150px; 
+    
+}
+
+/******************************* !SECTIONS *******************************/
+
+/****************************/
+/********* !overlay *********/
+/****************************/
+
+header {
+	
+    background-color: rgba(228,229,230, 0.9);
+	height: 100%;
+	overflow: hidden;
+	position: fixed;
+    -webkit-transition: transform 0.6s;
+    -moz-transition: transform 0.6s;
+    -ms-transition: transform 0.6s;
+    -o-transition: transform 0.6s;
+	transition: transform 0.6s;
+	transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+	width: 100%;
+	z-index: 10;
+	
+}
+
+/* fullscreen image */
+header .home-image {
+	
+	bottom: 0;
+    filter: url(gaussian-blur.svg#g-blur);
+	height: auto;
+    left: 50%;
+	min-width: 100%;
+	min-height: 120%;
+	opacity: 0.8;
+	position: absolute;
+    top: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    -moz-transform: translate3d(-50%, -50%, 0);
+    -ms-transform: translate3d(-50%, -50%, 0);
+    -o-transform: translate3d(-50%, -50%, 0);
+	transform: translate3d(-50%, -50%, 0);
+    -webkit-transition: transform 0.6s, opacity 0.6s;
+    -moz-transition: transform 0.6s, opacity 0.6s;
+    -ms-transition: transform 0.6s, opacity 0.6s;
+    -o-transition: transform 0.6s, opacity 0.6s;
+	transition: transform 0.6s, opacity 0.6s;
+	transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+	width: auto;
+	
+}
+
+/* full screen vector image */
+header .home-image use {
+    
+    fill: rgb(98, 99, 100);
+    
+}
+
+/* app info & close button */
+header hgroup h1,
+header hgroup h2,
+header .icon {
+	
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    -ms-transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+    transition: all 0.6s ease; 
+	
+}
+
+/* app title */
+header h1 {
+    
+    font-size: 4em;
+	margin-bottom: 0.25em;
+    
+}
+
+/* close button */
+header .icon {
+	
+	bottom: 1em;
+	opacity: 0;
+	pointer-events: none;
+	position: absolute;
+	right: 1em;
+	visibility: hidden;
+	
+}
+
+/* navigation & app info */
+nav,
+header hgroup {
+	
+	bottom: 0;
+	font-size: 1.15em;
+	padding: 60px;
+	position: absolute;
+	width: calc(100% - 120px);
+	
+}
+
+/* app info wrap */
+header hgroup {
+	
+	bottom: 150px;
+	
+}
+
+/* description text */
+nav > p {
+	
+	font-size: 1.25em;
+	font-weight: 300;
+    line-height: 1.2;
+	margin-bottom: 2em;
+	margin-top: 0.7em;
+    max-width: 900px;
+    min-height: 1.05em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre;
+	
+}
+
+/* each section & link lists */
+nav > section,
+nav > section > ul {
+    
+    align-items: center;
+    display: flex;
+    
+}
+
+/* section */
+nav > section {
+	
+	margin-top: 0.8em;
+	overflow: hidden;
+	
+}
+
+/* all but last section */
+nav > section:not(:last-child) {
+	
+	margin-bottom: 0.8em;
+	
+}
+
+/* section subheads */
+nav > section > a {
+	
+	font-family: "Source Sans Pro Bold", sans-serif;
+	font-size: 0.7em;
+	font-weight: 700;
+    margin-right: 1em;
+	text-transform: uppercase;
+	
+}
+
+/* links */
+nav > section li {
+	
+	padding-bottom: 0.3em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	padding-top: 0.15em;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	
+}
+
+/* link text */
+nav > section a {
+    
+    white-space: nowrap;
+    
+}
+
+nav > section a:hover {
+	
+	color: grey;
+	
+}
+
+/***************************************/
+/********* !overlay transition *********/
+/***************************************/
+
+/* header transition */
+.open header {
+	
+    -webkit-transform: translate3d(0, -100%, 0) translate3d(0, 150px, 0);
+    -moz-transform: translate3d(0, -100%, 0) translate3d(0, 150px, 0);
+    -ms-transform: translate3d(0, -100%, 0) translate3d(0, 150px, 0);
+    -o-transform: translate3d(0, -100%, 0) translate3d(0, 150px, 0);
+	transform: translate3d(0, -100%, 0) translate3d(0, 150px, 0);
+	
+}
+
+/* image transition */
+.open header > .home-image {
+	
+	opacity: 0;
+    -webkit-transform: translate3d(0, 20%, 0);
+    -moz-transform: translate3d(0, 20%, 0);
+    -ms-transform: translate3d(0, 20%, 0);
+    -o-transform: translate3d(0, 20%, 0);
+	transform: translate3d(0, 20%, 0);
+	
+}
+
+/* app info wrap transition */
+.open header hgroup {
+	
+	bottom: 30px;
+	
+}
+
+/* nav wrap */
+.open header nav {
+	
+	padding-bottom: 10px;
+	padding-top: 0;
+	
+}
+
+/* nav section transition */
+.open nav > section {
+	
+	margin-bottom: 0.25em;
+	margin-top: 0.25em;
+	
+}
+
+/* app info text transition */
+.open header h1,
+.open header h2 {
+    
+	font-size: 1em;
+	
+}
+
+/* app description transition */
+.open header h2 {
+	
+	opacity: 0;
+	visibility: hidden;
+	
+}
+
+/* close button transition */
+.open header .icon {
+	
+	pointer-events: all;
+	opacity: 0;
+	visibility: visible;
+	
+}
+
+/* icon hover */
+.open header:hover .icon,
+.open header .icon:hover {
+	
+	opacity: 0.5;
+	
+}
+
+/******************************* !CUSTOM *******************************/

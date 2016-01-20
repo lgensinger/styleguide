@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    
+    <head>
+        
+        <!---------->
+        <!-- META -->
+        <!---------->
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<meta name="description" content="styleguide">
+		<meta name="keywords" content="styleguide">
+		<meta name="author" content="styleguide">
+        <title>styleguide</title>
+        <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+
+        <!----------->
+        <!-- STYLE -->
+        <!----------->
+            
+        <link rel="stylesheet" href="css/styleguide.css">
+
+        <!------------->
+        <!-- SCRIPTS -->
+        <!------------->
+
+        <!-- angular -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+            
+        <!-- app -->
+        <script src="js/app.js"></script>
+            
+        <!-- controllers -->
+		<script src="js/controllers.js"></script>
+        <script src="js/controllers/main-controller.js"></script>
+		<script src="js/controllers/section-controller.js"></script>
+        <script src="js/controllers/stack-controller.js"></script>
+		<script src="js/controllers/detail-controller.js"></script>
+            
+        <!-- directives -->
+        <script src="js/directives.js"></script>
+        <script src="js/directives/radial-tree-directive.js"></script>
+        <script src="js/directives/content-slider-directive.js"></script>
+        <script src="js/directives/dendrogram-directive.js"></script>
+            
+        <!-- services -->
+        <script src="js/services.js"></script>
+        <script src="js/services/d3-service.js"></script>
+        <script src="js/services/data-service.js"></script>
+        
+        <!-- filters -->
+        <script src="js/filters.js"></script>
+        <script src="js/filters/capitalize-filter.js"></script>
+            
+    </head>
+        
+        <body>
+        
+            <ui-view></ui-view>
+            
+        </body>
+      
+</html>

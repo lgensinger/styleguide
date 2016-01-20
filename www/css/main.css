@@ -1,0 +1,762 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*************************************** MAIN STYLE ***************************************/
+
+/* Highest-level styling like font families and basic page layout. */
+
+/* !IMPORTS
+/* !FONTS
+/* !GLOBALS
+/* !CUSTOM
+/* --- !logos
+/* ------- !beacon
+/* ------- !bit
+/* ------- !bolt
+/* ------- !dive
+/* ------- !echo
+/* ------- !eis
+/* ------- !labs
+/* ------- !launchpad
+/* ------- !rain
+/* ------- !saul
+/* ------- !storm
+/* ------- !valeris
+/* ------- !warp
+/* --- !classification
+
+/******************************* !IMPORTS *******************************/
+@import url("reset.css");
+
+/******************************* !FONTS *******************************/
+
+/* regular */
+@font-face {
+    
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/SourceSansPro-Regular.ttf") format("truetype");
+    
+}
+
+/* light */
+@font-face {
+    
+    font-family: "Source Sans Pro Light";
+    font-style: normal;
+    font-weight: 300;
+    src: url("../fonts/SourceSansPro-Light.ttf") format("truetype");
+    
+}
+
+/* italic */
+@font-face {
+    
+    font-family: "Source Sans Pro Italic";
+    font-style: italic;
+    font-weight: normal;
+    src: url("../fonts/SourceSansPro-Italic.ttf") format("truetype");
+    
+}
+
+/* bold */
+@font-face {
+    
+    font-family: "Source Sans Pro Bold";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/SourceSansPro-Bold.ttf") format("truetype");
+    
+}
+
+/* black */
+@font-face {
+    
+    font-family: "Source Sans Pro Black";
+    font-style: normal;
+    font-weight: 900;
+    src: url("../fonts/SourceSansPro-Black.ttf") format("truetype");
+    
+}
+
+/******************************* !GLOBALS *******************************/
+
+html {
+    
+    font-size: 100%;
+    
+}
+
+body {
+    
+    font-family: "Source Sans Pro", sans-serif;
+
+}
+
+p, thead, tfoot, tbody, li, td {
+    
+    line-height: 1;
+    
+}
+
+b, strong {
+    
+    font-family: "Source Sans Pro Bold", sans-serif;
+    font-weight: 700;
+
+}
+
+i, em {
+    
+    font-family: "Source Sans Pro Italic", sans-serif;
+
+}
+
+li {
+    
+    list-style-type: disc;
+    margin-left: 2em;
+    padding-left: 0.5em;
+    
+}
+
+nav li,
+nav ul {
+    
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+}
+
+a {
+    
+	cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+    
+}
+
+table p {
+    
+    margin-bottom: 0;
+    
+}
+
+thead {
+    
+    font-size: 0.9em;
+    font-family: "Source Sans Pro Bold", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    
+}
+
+td, th {
+    
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    
+}
+
+th {
+    
+    padding-bottom: 0.75em;
+    padding-top: 0.75em;
+    
+}
+
+td {
+    
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    
+}
+
+tfoot td {
+    
+    border-bottom: none;
+    font-size: 0.75em;
+    
+}
+
+button {
+    
+    background: none;
+    border: 1px;
+    border-color: currentColor;
+    border-style: solid;
+    padding: 0.5em;
+    pointer-events: all;
+    
+}
+
+button:hover,
+button:focus {
+    
+    background: black;
+    color: white;
+    
+}
+
+button:active {
+    
+    background: grey;
+    
+}
+
+input {
+    
+    padding: 0.5em;
+    
+}
+
+textarea {
+    
+    max-width: 600px;
+    min-width: 300px;
+    padding: 1em;
+    width: 60%;
+    
+}
+
+:hover {
+	
+	-webkit-transition: all 250ms ease;
+    -moz-transition: all 250ms ease;
+    -ms-transition: all 250ms ease;
+    -o-transition: all 250ms ease;
+	transition: all 250ms ease;
+	
+}
+
+/******************************* !CUSTOM *******************************/
+
+/**************************/
+/********* !logos *********/
+/**************************/
+
+/* tall logo */
+.logo.portrait {
+    
+    height: auto;
+    width: 4em;
+    
+}
+
+/* wide logo */
+.logo.landscape {
+    
+    height: 2em;
+    width: auto;
+    
+}
+
+/* square logo */
+.logo.square {
+    
+    height: 6em;
+    width: 6em;
+    
+}
+
+/***********/
+/* !beacon */
+/***********/
+.beacon.full-color #type {
+    
+    fill: rgb(158, 167, 169);
+        
+}
+
+.beacon.full-color #icon {
+    
+    fill: rgb(117, 178, 191);
+        
+}
+
+/********/
+/*! bit */
+/********/
+.bit.full-color #overlap {
+    
+    fill: rgb(142, 30, 91);
+    
+}
+
+.bit.full-color #arrowLeftTop {
+    
+    fill: rgb(150, 150, 150);
+    
+}
+
+.bit.full-color #arrowLeftBottom {
+    
+    fill: rgb(132, 132, 132);
+    
+}
+
+.bit.full-color #arrowRightBottom {
+    
+    fill: rgb(229, 117, 40);
+    
+}
+
+.bit.full-color #arrowRightTop {
+    
+    fill: rgb(244, 128, 41);
+    
+}
+
+.bit.full-color #type {
+    
+    fill: rgb(132, 132, 132);
+    
+}
+
+/*********/
+/* !bolt */
+/*********/
+.bolt.full-color #type {
+    
+    fill: rgb(3, 14, 30);
+    
+}
+
+.bolt.full-color #icon {
+    
+    fill: rgb(127, 209, 253);
+    
+}
+
+/*********/
+/* !dive */
+/*********/
+.dive.full-color #type {
+    
+    fill: rgb(189, 191, 193);
+    
+}
+
+.dive.full-color #icon {
+    
+    fill: rgb(189, 191, 193);
+    
+}
+
+/*********/
+/* !echo */
+/*********/
+.echo.full-color #type {
+    
+    fill: rgb(249, 154, 18);
+    
+}
+
+.echo.full-color #icon {
+    
+    fill: rgb(82, 107, 127);
+    
+}
+
+/********/
+/* !eis */
+/********/
+.eis.full-color #type {
+    
+    fill: rgb(14, 60, 94);
+    
+}
+
+.eis.full-color #outsideCubes {
+    
+    fill: rgb(31, 80, 116);
+    
+}
+
+.eis.full-color #insideCubes {
+    
+    fill: rgb(46, 107, 142);
+    
+}
+
+.eis.full-color #lowerTopOutline {
+    
+    fill: rgb(52, 120, 154);
+    
+}
+
+.eis.full-color #lowerBottomOutline {
+    
+    fill: rgb(42, 102, 137);
+    
+}
+
+.eis.full-color #upperTopOutline {
+    
+    fill: rgb(25, 72, 108);
+    
+}
+
+.eis.full-color #upperMiddleOutline {
+    
+    fill: rgb(49, 118, 151);
+    
+}
+
+.eis.full-color #upperBottomOutline {
+    
+    fill: rgb(64, 145, 177);
+    
+}
+
+.eis.full-color #centerFill {
+    
+    fill: rgb(70, 158, 190);
+    
+}
+
+.eis.full-color #middleFill {
+    
+    fill: rgb(60, 140, 172);
+    
+}
+
+.eis.full-color #outerFill {
+    
+    fill: rgb(43, 110, 143);
+    
+}
+
+/*********/
+/* !labs */
+/*********/
+.labs.full-color #type {
+    
+    fill: rgb(189, 191, 193);
+    
+}
+
+.labs.full-color #icon {
+    
+    fill: rgb(189, 191, 193);
+    
+}
+
+/**************/
+/* !launchpad */
+/**************/
+
+/* dark blue */
+.launchpad.full-color #type,
+.launchpad.full-color #finRight, 
+.launchpad.full-color #finLeft,
+.launchpad.full-color #bodyRight,
+.launchpad.full-color #finBack,
+.launchpad.full-color #windowColorBack {
+    
+    fill: rgb(14, 36, 48);
+    
+}
+
+/* bright-orange */
+.launchpad.full-color #exhaustBack {
+    
+    fill: rgb(234, 113, 75);
+    
+}
+
+/* mustard */
+.launchpad.full-color #exhaustFront,
+.launchpad.full-color #windowColorFront {
+    
+    fill: rgb(232, 173, 77);
+    
+}
+
+/* eggshell */
+.launchpad.full-color #bodyBack,
+.launchpad.full-color #cloudsDarkBack,
+.launchpad.full-color #cloudsLightBack {
+    
+    fill: rgb(244, 244, 244);
+    
+}
+
+/* white */
+.launchpad.full-color #bodyLeft,
+.launchpad.full-color #finCenterLeft,
+.launchpad.full-color #windowOverlayFront,
+.launchpad.full-color #cloudsLightFront {
+    
+    fill: rgb(255, 255, 255);
+    
+}
+
+/* black */
+.launchpad.full-color #finCenterRight,
+.launchpad.full-color #windowOverlayBack,
+.launchpad.full-color #cloudsDarkFront {
+    
+    fill: rgb(0, 0, 0);
+    
+}
+
+.launchpad.full-color #bodyRight,
+.launchpad.full-color #bodyLeft.
+.launchpad.full-color #finCenterRight,
+.launchpad.full-color #finCenterLeft,
+.launchpad.full-color #windowOverlayBack,
+.launchpad.full-color #windowOverlayFront
+.launchpad.full-color #cloudsDarkFront,
+.launchpad.full-color #cloudsLightFront {
+    
+    opacity: 0.1;
+    
+}
+
+
+/*********/
+/* !rain */
+/*********/
+
+.rain.full-color #type {
+    
+    fill: rgb(100, 100, 100);
+    
+}
+
+.rain.full-color #umbrella {
+    
+    fill: rgb(200, 200, 200);
+    
+}
+
+.rain.full-color #shield path:nth-child(1) {
+    
+    fill: rgb(75, 161, 178);
+    opacity: 1;
+    
+}
+
+.rain.full-color #shield path:nth-child(2) {
+    
+    fill: rgb(157, 201, 61);
+    opacity: 1;
+    
+}
+
+.rain.full-color #shield path:nth-child(3) {
+    
+    fill: rgb(57, 210 , 218);
+    opacity: 1;
+    
+}
+
+.rain.full-color #shield path:nth-child(4) {
+    
+    fill: rgb(205, 106, 68);
+    opacity: 1;
+    
+}
+
+.rain.full-color #shield path:nth-child(5) {
+    
+    fill: rgb(31, 209, 253);
+    opacity: 1;
+    
+}
+
+.rain.full-color #shield path:nth-child(6) {
+    
+    fill: rgb(192, 188, 18);
+    opacity: 1;
+    
+}
+
+.rain.full-color #shield path:nth-child(7) {
+    
+    fill: rgb(139, 190, 12);
+    opacity: 1;
+    
+}
+
+.rain.full-color #shield path:nth-child(8) {
+    
+    fill: rgb(188, 56, 6);
+    opacity: 1;
+    
+}
+
+.rain.full-color #shield path:nth-child(9) {
+    
+    fill: rgb(235, 220, 166);
+    opacity: 1;
+    
+}
+
+/*********/
+/* !saul */
+/*********/
+.saul.full-color {
+    
+    fill: rgb(42, 41, 37);
+    
+}
+
+/**********/
+/* !storm */
+/**********/
+.storm.full-color #type,
+.storm.full-color #dots {
+    
+    fill: rgb(48, 48, 48);
+    
+}
+
+.storm.full-color #lines {
+    
+    fill: rgb(200, 200, 200);
+    
+}
+
+/************/
+/* !valeris */
+/************/
+.valeris.full-color #type,
+.valeris.full-color #outline {
+    
+    fill: rgb(87, 112, 111);
+    
+}
+
+.valeris.full-color #cube3,
+.valeris.full-color #cube7 {
+    
+    fill: rgb(96, 165, 169);
+    
+}
+
+.valeris.full-color #cube2,
+.valeris.full-color #cube6,
+.valeris.full-color #cube8 {
+    
+    fill: rgba(96, 165, 169, 0.8);
+    
+}
+
+.valeris.full-color #cube5 {
+    
+    fill: rgba(96, 165, 169, 0.75);
+    
+}
+
+.valeris.full-color #cube4,
+.valeris.full-color #cube9 {
+    
+    fill: rgba(96, 165, 169, 0.65);
+    
+}
+
+.valeris.full-color #cube1 {
+    
+    fill: rgba(96, 165, 169, 0.4);
+    
+}
+
+
+/*********/
+/* !warp */
+/*********/
+.warp.full-color #type,
+.warp.full-color #ringDark {
+    
+    fill: rgb(0, 104, 56);
+        
+}
+
+.warp.full-color #ringGrass {
+    
+    fill: rgb(116, 182, 74);
+    
+}
+
+.warp.full-color #ringMid {
+    
+    fill: rgb(139, 197, 63);
+    
+}
+
+.warp.full-color #ringLime {
+    
+    fill: rgb(190, 214, 58);
+    
+}
+
+.warp.full-color #ringYG {
+    
+    fill: rgb(214, 222, 35);
+    
+}
+
+.warp.full-color #ringYellow {
+    
+    fill: rgb(249, 236, 49);
+    
+}
+
+/***********************************/
+/********* !classification *********/
+/***********************************/
+
+/* top secret */
+.classification-ts {
+    
+	background: rgba(255, 82, 0, 0.7);
+    
+}
+
+/* secret */
+.classification-s {
+        
+    background: rgba(255, 128, 0, 0.7);
+    
+}
+
+/* classification */
+.classification-c {
+        
+    background: rgba(255, 177, 0, 0.7);
+    
+}
+
+/* classification */
+.classification-u {
+
+    background: rgba(98, 99, 100, 0.7);
+    
+}
+
+/* portion marks */
+.portion-mark {
+    
+    font-family: "Source Sans Pro";
+    font-size: 0.75em;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: uppercase;
+    
+}
+
+.icon {
+	
+	cursor: pointer;
+	fill: currentColor;
+	pointer-events: all;
+	height: 1em;
+	width: 1em;
+	
+}
