@@ -299,3 +299,16 @@ nav > section a:hover {
 }
 
 /******************************* !CUSTOM *******************************/
+
+/* for dev only */
+.item {
+    
+    color: #159b9b;
+    
+}
+
+.stack {
+    
+    color: orangered;
+    
+}

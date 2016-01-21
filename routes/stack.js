@@ -2,7 +2,7 @@
 var express = require("express");
 var router = express.Router();
 var pg = require("pg");
-var conString = process.env.DATABASE_URL || "postgres://postgres:***@localhost/postgres";
+var conString = process.env.DATABASE_URL || "postgres://postgres:iamsocool@localhost/postgres";
 var baseUrl = "/api";
 
 /*******************************/
@@ -10,27 +10,41 @@ var baseUrl = "/api";
 /*******************************/
 
 // return stack inside a section
-router.get(baseUrl + "/:section" + "/:stack", function(req, res) {
-    
+router.get(baseUrl + "/:section" + "/:id", function(req, res) {
+    console.log("------------ stack in a section ---------------")
     var results = [];
     
     // get a postgres client from the connection pool
     pg.connect(conString, function(err, client, done) {
         
-		var stack = req.params.stack.replace(/-/g, ' ');;
 		var section = req.params.section;
-		
+        var id = req.params.id;
+        var idType = parseInt(id);
+        var idFormat = id.replace(/-/g, ' ');
+        
         // get letters to determine plural tense of param
 		var lastThree = section.substring(section.length - 3, section.length + 1);
+        var lastTwo = section.substring(section.length - 2, section.length + 1);
         var lastOne = section.substring(section.length - 1, section.length + 1);
         var allButLastOne = section.substring(0, section.length -1);
+        var allButLastTwo = section.substring(0, section.length - 2);
         var allButLastThree = section.substring(0, section.length - 3);
         
         // format stack so url is user friendly but db is still all in singular format
-		var sectionFormat = lastOne == "i" ? section : (lastThree == "ies" ? allButLastThree + "y" : allButLastOne);
-		
+		var sectionFormat = lastOne == "i" ? section : (lastThree == "ies" ? allButLastThree + "y" : (lastThree == "hes" ? allButLastTwo : allButLastOne));
+        
+        // check the param type
+        if (isNaN(idType)) {
+            
+            var statement = "select * from " + sectionFormat + " where name = '" + idFormat + "';"
+            
+        } else {
+            
+            var statement = "select * from " + sectionFormat + " where id = " + id + ";"
+        };
+
         // SQL query
-        var query = client.query("select * from " + sectionFormat + " where name = '" + stack + "';");
+        var query = client.query(statement);
         
         // stream results back one row at a time
         query.on("row", function(row) {
@@ -54,7 +68,7 @@ router.get(baseUrl + "/:section" + "/:stack", function(req, res) {
 
 // return section
 router.get(baseUrl + "/:section", function(req, res) {
-    
+    console.log("------------ a section ---------------")
     var results = [];
     
     // get a postgres client from the connection pool

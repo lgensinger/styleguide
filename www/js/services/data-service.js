@@ -87,26 +87,11 @@ angular.module("data-service", [])
 		
     };
 	
-	// stack
-	dataService.getStack = function(stack, name) {
-        
-        var apiUrl = urlBase + stack + "/" + name;
-            //console.log(apiUrl);
-        // call data
-        return $http.get(apiUrl).then(function(data) {
-            
-            // return data
-            return data.data;
-            
-        });
-		
-    };
-	
 	// detail
-	dataService.getDetail = function(stack, id) {
+	dataService.getDetail = function(section, id) {
         
-        var apiUrl = urlBase + stack + "/" + id;
-            //console.log(apiUrl);
+        var apiUrl = urlBase + section + "/" + id;
+            console.log(apiUrl);
         // call data
         return $http.get(apiUrl).then(function(data) {
             

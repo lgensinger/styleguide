@@ -1,6 +1,6 @@
 angular.module("content-slider-directive", [])
 
-.directive("contentSlider", [ function() {
+.directive("contentSlider", ["$stateParams", function($stateParams) {
 	return {
 		restrict: "E",
 		scope: {
@@ -9,6 +9,8 @@ angular.module("content-slider-directive", [])
         controller: function($scope) {
             
             var mainScope = $scope.$parent.$parent;
+            
+            $scope.section = $stateParams.nav;
                         
              // control slider navigation
             $scope.currentIndex = mainScope.idx;

@@ -2,7 +2,7 @@
 var express = require("express");
 var router = express.Router();
 var pg = require("pg");
-var conString = process.env.DATABASE_URL || "postgres://postgres:***@localhost/postgres";
+var conString = process.env.DATABASE_URL || "postgres://postgres:iamsocool@localhost/postgres";
 var baseUrl = "/api/section";
 
 /*******************************/
@@ -11,14 +11,14 @@ var baseUrl = "/api/section";
 
 // get all items
 router.get(baseUrl, function(req, res) {
-    
+    console.log("********** all sections **************")
     var results = [];
     
     // get a postgres client from the connection pool
     pg.connect(conString, function(err, client, done) {
                 
         // SQL query
-        var query = client.query("create or replace function query_table(_tbl regclass)returns table(name text,id integer)as $body$ begin return query execute'select name, id from '||_tbl;end;$body$ language plpgsql;select db.label as nav,array_agg(row_to_json(r))as items from db db,query_table(db.name)as r where navigation=true group by db.label;");
+        var query = client.query("create or replace function query_table(_tbl regclass)returns table(name text,id integer)as $body$ begin return query execute'select name, id from '||_tbl;end;$body$ language plpgsql;select db.label as nav,db.type as type,array_agg(row_to_json(r))as items from db db,query_table(db.name)as r where navigation=true group by db.label,db.type;");
         
         // stream results back one row at a time
         query.on("row", function(row) {

@@ -58,10 +58,10 @@
 					<!-- ITEM -->
 					<li ng-repeat="item in section.items">
 						
-						<a ui-sref="app.stack({ nav: section.nav , stack: beautyEncode(item.name) })"
+						<a ui-sref="app.stack({ nav: section.nav, stack: section.type == 'stack' ? beautyEncode(item.name) : item.id })"
                            ng-click="getIdx($index);"
-				   data-ng-mouseover="changeInfo($index, 'categories')"
-				   data-ng-class="{ active: isActive( category.title ) }">{{ item.name }}</a>
+                           ng-class="section.type == 'stack' ? 'stack' : 'item'"
+				   data-ng-mouseover="changeInfo($index, 'categories')">{{ item.name }}</a>
 						
 					</li>
 				
@@ -81,13 +81,13 @@
 	</header>
     
     <!-- ONLY FOR DEV -->
-    <button type="button"
+    <!--<button type="button"
             ng-click="addNav('swatch', true, 'swatches', 'Swatches are individual colors.');"
             style="z-index:99999; position: absolute;">add table</button>
     
     <button type="button"
             ng-click="editNav(12,'specification', true, 'specifications', 'Specifications are autonamed by an item, can not be brand specific, and should not need a visual example.');"
-            style="z-index:99999; position: absolute; right: 0">edit table</button>
+            style="z-index:99999; position: absolute; right: 0">edit table</button>-->
 
 	<!-- CONTENT -->
 	<section ui-view></section>

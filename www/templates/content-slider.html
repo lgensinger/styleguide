@@ -4,31 +4,14 @@
     <!-- MEDIA -->
     <div ng-repeat="detail in vizData"
          class="slide slide-animation"
-         ng-hide="!isCurrentSlideIndex($index);">
+         ng-if="isCurrentSlideIndex($index);"
+         ng-controller="detailCtrl">
 
         <p>{{ detail.name }}</p>
+        <p>{{ detail.description }}</p>
 
     </div>
 
-</div>
-
-<!-- NAV ARROWS -->
-<div class="arrows">
-	
-	<a class="icon previous"
-	   ng-click="next();">
-		<svg viewBox="0 0 100 58.5">
-			<use xlink:href="assets/icons/arrow-line-2.svg#artwork"></use>
-		</svg>
-	</a>
-
-	<a class="icon next"
-	   ng-click="previous();">
-		<svg viewBox="0 0 100 58.5">
-			<use xlink:href="assets/icons/arrow-line-2.svg#artwork"></use>
-		</svg>
-	</a>
-	
 </div>
 
 <!-- NAV DOTS -->

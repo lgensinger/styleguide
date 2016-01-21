@@ -44,16 +44,19 @@ angular.module("main-controller", [])
 		$state.go("app");
 		
 	};
-	
-	// beautify url params
-	$scope.beautyEncode = function(str) {
+    
+    // encode url spaces
+    $scope.beautyEncode = function(str) {
 		str = str.replace(/ /g, '-');
 		return str;
 	};
     
     // capture clicked nav item index
     $scope.getIdx = function(idx) {
+        
+        // set the index for the slider
         $scope.idx = idx;
+        
     };
     
     // add new navigation
@@ -73,7 +76,7 @@ angular.module("main-controller", [])
     /*******************************/
     /********* !FUNCTIONS **********/
     /*******************************/
-    
+        
     function getApp() {
 		dataService.getApp().then(function(data) {
             

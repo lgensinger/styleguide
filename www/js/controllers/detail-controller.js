@@ -1,18 +1,21 @@
 angular.module("detail-controller", [])
 
-.controller("detailCtrl", ["$scope", "stackData", function($scope, stackData) {
+.controller("detailCtrl", ["$scope", "$stateParams", "dataService", function($scope, $stateParams, dataService) {
     
 	var mainScope = $scope.$parent;
 	
 	// open header
 	mainScope.isOpen = true;
-	
+
 	
 	
     /**************************/
     /********* !DATA **********/
     /**************************/
            
+    $scope.detail;
+    
+    getDetail($stateParams.nav, $stateParams.stack);
 	
 	
     /****************************/
@@ -24,6 +27,16 @@ angular.module("detail-controller", [])
     /*******************************/
     /********* !FUNCTIONS **********/
     /*******************************/
+    
+    function getDetail(section, id) {
+		dataService.getDetail(section, id).then(function(data) {
+                        
+            // assign to scope
+			$scope.detail = data[0];
+            
+		});
+		
+	};
     
 	
 }]);
