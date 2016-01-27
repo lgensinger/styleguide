@@ -42,6 +42,10 @@
 			<!-- DESCRIPTION -->
 			<h2>{{ description }}</h2>
 			
+			<button type="button"
+					class="small"
+					ui-sref="app.add">Add New</button>
+			
 		</hgroup>
 		
 		<nav>
@@ -63,6 +67,8 @@
                            ng-class="section.type == 'stack' ? 'stack' : 'item'"
 				   data-ng-mouseover="changeInfo($index, 'categories')">{{ item.name }}</a>
 						
+						<a ng-click="removeItem(item.id)">remove</a>
+						
 					</li>
 				
 				</ul>
@@ -82,11 +88,11 @@
     
     <!-- ONLY FOR DEV -->
     <!--<button type="button"
-            ng-click="addNav('swatch', true, 'swatches', 'Swatches are individual colors.');"
+            ng-click="addNav('api', true, 'api', 'The API has endpoints.');"
             style="z-index:99999; position: absolute;">add table</button>
     
     <button type="button"
-            ng-click="editNav(12,'specification', true, 'specifications', 'Specifications are autonamed by an item, can not be brand specific, and should not need a visual example.');"
+            ng-click="editNav(1,'category', false, 'categories', 'Categories are subsets of the design system.');"
             style="z-index:99999; position: absolute; right: 0">edit table</button>-->
 
 	<!-- CONTENT -->

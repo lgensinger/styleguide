@@ -35,6 +35,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: "mainCtrl"
     })
 	
+	// add items
+    .state("app.add", {
+        url: "add",
+        templateUrl: "templates/add.html",
+        controller: "addCtrl"
+    })
+	
 	// nav section view
 	.state("app.section", {
         url: "{section}",

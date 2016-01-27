@@ -300,6 +300,12 @@ nav > section a:hover {
 
 /******************************* !CUSTOM *******************************/
 
+.small {
+	
+	font-size: 0.6em;
+	
+}
+
 /* for dev only */
 .item {
     

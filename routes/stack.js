@@ -108,175 +108,250 @@ router.get(baseUrl + "/:section", function(req, res) {
 		]
 	};
         var api = {
-		"name": "API",
-		"children": [
-			{
-				"name": "system",
-				"children": [
-					{
-						"name": "palette",
-						"children": [
+        "name": "API",
+        "children": [
+            {
+                "name": "system",
+                "children": [
+                    {
+                        "name": "system",
+                        "children": [
                             {
-                                "name": "name"
-                            },
-                            {
-                                "name": "id"
-                            },
-                            {
-                                "name": "swatch",
+                                "name": "set",
                                 "children": [
                                     {
-                                        "name": "name"
-                                    },
-                                    {
-                                        "name": "id"
-                                    },
-                                    {
-                                        "name": "r"
-                                    },
-                                    {
-                                        "name": "g"
-                                    },
-                                    {
-                                        "name": "b"
+                                        "name": "component",
+                                        "children": [
+                                            {
+                                                "name": "item",
+                                                "children": [
+                                                    {
+                                                        "name": "type"
+                                                    }
+                                                ]
+                                            }
+                                        ]
                                     }
                                 ]
                             }
                         ]
-					}/*,
+                    },
                     {
-                        "name": "asset",
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "graphic",
+                                                "children": [
+                                                    {
+                                                        "name": "vector"
+                                                    },
+                                                    {
+                                                        "name": "raster"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "text"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "swatch"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "action",
+                                                "children": [
+                                                    {
+                                                        "name": "animation"
+                                                    },
+                                                    {
+                                                        "name": "event"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "plot",
+                                                "children": [
+                                                    {
+                                                        "name": "bar"
+                                                    },
+                                                    {
+                                                        "name": "pie"
+                                                    },
+                                                    {
+                                                        "name": "line"
+                                                    },
+                                                    {
+                                                        "name": "area"
+                                                    },
+                                                    {
+                                                        "name": "map"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "button",
+                                        "children": [
+                                            {
+                                                "name": "action"
+                                            },
+                                            {
+                                                "name": "text"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "palette",
+                                        "children": [
+                                            {
+                                                "name": "swatch"
+                                            },
+                                            {
+                                                "name": "swatch"
+                                            },
+                                            {
+                                                "name": "swatch"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "icon",
+                                        "children": [
+                                            {
+                                                "name": "graphic"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
                         "children": [
                             {
                                 "name": "logo",
                                 "children": [
                                     {
-                                        "name": "name"
-                                    },
-                                    {
-                                        "name": "id"
-                                    },
-                                    {
-                                        "name": "file"
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "icon",
-                                "children": [
-                                    {
-                                        "name": "name"
-                                    },
-                                    {
-                                        "name": "id"
-                                    },
-                                    {
-                                        "name": "file"
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "image",
-                                "children": [
-                                    {
-                                        "name": "name"
-                                    },
-                                    {
-                                        "name": "id"
-                                    },
-                                    {
-                                        "name": "file"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "motion",
-                        "children": [
-                            {
-                                "name": "animation",
-                                "children": [
-                                    {
-                                        "name": "concept",
+                                        "name": "palette",
                                         "children": [
                                             {
-                                                "name": "name"
+                                                "name": "swatch"
                                             },
                                             {
-                                                "name": "id"
-                                            },
-                                            {
-                                                "name": "storyboard"
+                                                "name": "swatch"
                                             }
                                         ]
                                     },
                                     {
-                                        "name": "code",
+                                        "name": "",
                                         "children": [
                                             {
-                                                "name": "name"
-                                            },
-                                            {
-                                                "name": "id"
-                                            },
-                                            {
-                                                "name": "dist",
-                                                "children": [
-                                                    {
-                                                        "name": "html"
-                                                    },
-                                                    {
-                                                        "name": "css"
-                                                    },
-                                                    {
-                                                        "name": "js"
-                                                    },
-                                                    {
-                                                        "name": "asset"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "video",
-                                "children": [
-                                    {
-                                        "name": "concept",
-                                        "children": [
-                                            {
-                                                "name": "name"
-                                            },
-                                            {
-                                                "name": "id"
-                                            },
-                                            {
-                                                "name": "storyboard"
+                                                "name": "graphic"
                                             }
                                         ]
                                     },
                                     {
-                                        "name": "production",
+                                        "name": "",
                                         "children": [
                                             {
-                                                "name": "name"
-                                            },
-                                            {
-                                                "name": "id"
-                                            },
-                                            {
-                                                "name": "file",
-                                                "children": [
-                                                    {
-                                                        "name": "asset"
-                                                    },
-                                                    {
-                                                        "name": "transcript"
-                                                    }
-                                                ]
+                                                "name": "text"
                                             }
                                         ]
                                     }
@@ -285,68 +360,27 @@ router.get(baseUrl + "/:section", function(req, res) {
                         ]
                     },
                     {
-                        "name": "visualization",
+                        "name": "",
                         "children": [
                             {
-                                "name": "name"
-                            },
-                            {
-                                "name": "data visualization",
+                                "name": "tooltip",
                                 "children": [
                                     {
-                                        "name": "data"
-                                    },
-                                    {
-                                        "name": "form"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "typography",
-                        "children": [
-                            {
-                                "name": "font"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "layout",
-                        "children": [
-                            {
-                                "name": "structure"
-                            },
-                            {
-                                "name": "form"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "ui",
-                        "children": [
-                            {
-                                "name": "workspace",
-                                "children": [
-                                    {
-                                        "name": "workspace",
+                                        "name": "button",
                                         "children": [
                                             {
-                                                "name": "module",
-                                                "children": [
-                                                    {
-                                                        "name": "title"
-                                                    },
-                                                    {
-                                                        "name": "visualization"
-                                                    },
-                                                    {
-                                                        "name": "action"
-                                                    },
-                                                    {
-                                                        "name": "source"
-                                                    }
-                                                ]
+                                                "name": "text"
+                                            },
+                                            {
+                                                "name": "action"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "text"
                                             }
                                         ]
                                     }
@@ -355,206 +389,1043 @@ router.get(baseUrl + "/:section", function(req, res) {
                         ]
                     },
                     {
-                        "name": "component",
+                        "name": "",
                         "children": [
                             {
-                                "name": "poster"
-                            },
-                            {
-                                "name": "ad"
-                            },
-                            {
-                                "name": "wallpaper"
-                            }
-                        ]
-                    }*/
-				]
-			},
-            /*{
-                "name": "brand",
-                "children": [
-                    {
-                        "name": "market",
-                        "children": [
-                            {
-                                "name": "audience",
+                                "name": "user action",
                                 "children": [
                                     {
-                                        "name": "name"
-                                    },
-                                    {
-                                        "name": "id"
-                                    },
-                                    {
-                                        "name": "needs"
-                                    },
-                                    {
-                                        "name": "attribute",
+                                        "name": "button",
                                         "children": [
                                             {
-                                                "name": "age"
+                                                "name": "text"
                                             },
                                             {
-                                                "name": "gender"
+                                                "name": "action"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "button",
+                                        "children": [
+                                            {
+                                                "name": "text"
                                             },
                                             {
-                                                "name": "role"
+                                                "name": "action"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "sourcing",
+                                "children": [
+                                    {
+                                        "name": "icon",
+                                        "children": [
+                                            {
+                                                "name": "graphic"
+                                            },
+                                            {
+                                                "name": "action"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "icon",
+                                        "children": [
+                                            {
+                                                "name": "graphic"
+                                            },
+                                            {
+                                                "name": "action"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {   "name": "class",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "text"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "palette",
+                                        "children": [
+                                            {
+                                                "name": "swatch"
+                                            },
+                                            {
+                                                "name": "swatch"
+                                            },
+                                            {
+                                                "name": "swatch"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "button",
+                                        "children": [
+                                            {
+                                                "name": "text"
+                                            },
+                                            {
+                                                "name": "action"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "viz",
+                        "children": [
+                            {   "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "text"
                                             }
                                         ]
                                     }
                                 ]
                             },
                             {
-                                "name": "trend",
+                                "name": "",
                                 "children": [
                                     {
-                                        "name": "name"
-                                    },
-                                    {
-                                        "name": "span"
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "plot"
+                                            }
+                                        ]
                                     }
                                 ]
                             },
                             {
-                                "name": "innovation",
+                                "name": "",
                                 "children": [
                                     {
-                                        "name": "name"
-                                    },
-                                    {
-                                        "name": "type"
+                                        "name": "palette",
+                                        "children": [
+                                            {
+                                                "name": "swatch"
+                                            },
+                                            {
+                                                "name": "swatch"
+                                            },
+                                            {
+                                                "name": "swatch"
+                                            }
+                                        ]
                                     }
                                 ]
                             },
                             {
-                                "name": "competition",
+                                "name": "sourcing",
                                 "children": [
                                     {
-                                        "name": "name"
+                                        "name": "icon",
+                                        "children": [
+                                            {
+                                                "name": "graphic"
+                                            },
+                                            {
+                                                "name": "action"
+                                            }
+                                        ]
                                     },
                                     {
-                                        "name": "value"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "attributes",
-                        "children": [
-                            {
-                                "name": "essential"
-                            },
-                            {
-                                "name": "valued"
-                            },
-                            {
-                                "name": "unique"
-                            },
-                            {
-                                "name": "definitive"
-                            },
-                            {
-                                "name": "dominant"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "concept",
-                        "children": [
-                            {
-                                "name": "name"
-                            },
-                            {
-                                "name": "moodboard"
-                            },
-                            {
-                                "name": "positioning",
-                                "children": [
-                                    {
-                                        "name": "values"
-                                    },
-                                    {
-                                        "name": "focus"
-                                    },
-                                    {
-                                        "name": "definition"
-                                    },
-                                    {
-                                        "name": "offer"
-                                    },
-                                    {
-                                        "name": "differentiation"
-                                    },
-                                    {
-                                        "name": "emotional"
+                                        "name": "icon",
+                                        "children": [
+                                            {
+                                                "name": "graphic"
+                                            },
+                                            {
+                                                "name": "action"
+                                            }
+                                        ]
                                     }
                                 ]
                             }
                         ]
                     },
                     {
-                        "name": "system",
+                        "name": "video",
                         "children": [
-                            {
-                                "name": "voice",
+                            {   "name": "",
                                 "children": [
                                     {
-                                        "name": "tone"
-                                    },
-                                    {
-                                        "name": "language"
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "text"
+                                            }
+                                        ]
                                     }
                                 ]
                             },
                             {
-                                "name": "name"
+                                "name": "logo",
+                                "children": [
+                                    {
+                                        "name": "palette",
+                                        "children": [
+                                            {
+                                                "name": "swatch"
+                                            },
+                                            {
+                                                "name": "swatch"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "graphic"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "text"
+                                            }
+                                        ]
+                                    }
+                                ]
                             },
                             {
-                                "name": "style"
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "palette",
+                                        "children": [
+                                            {
+                                                "name": "swatch"
+                                            },
+                                            {
+                                                "name": "swatch"
+                                            },
+                                            {
+                                                "name": "swatch"
+                                            }
+                                        ]
+                                    }
+                                ]
                             },
                             {
-                                "name": "tagline"
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "graphic"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "graphic"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "action"
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     }
                 ]
-            },*/
+            },
+            {
+                "name": "brand",
+                "children": [
+                    {
+                        "name": "brand",
+                        "children": [
+                            {
+                                "name": "concept",
+                                "children": [
+                                    {
+                                        "name": "attributes",
+                                        "children": [
+                                            {
+                                                "name": "market",
+                                                "children": [
+                                                    {
+                                                        "name": "type"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "audience",
+                                                "children": [
+                                                    {
+                                                        "name": "corporate"
+                                                    },
+                                                    {
+                                                        "name": "general"
+                                                    },
+                                                    {
+                                                        "name": "partner"
+                                                    },
+                                                    {
+                                                        "name": "peer"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "trend",
+                                                "children": [
+                                                    {
+                                                        "name": "design"
+                                                    },
+                                                    {
+                                                        "name": "ux"
+                                                    },
+                                                    {
+                                                        "name": "content"
+                                                    },
+                                                    {
+                                                        "name": "economic"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "innovation"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "competition"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "ABC group"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "partner 1"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "custom onboard"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "total awareness"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "uyod"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "flat design"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "firefox v30"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "group xyz"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+					{
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "data-driven",
+                                        "children": [
+                                            {
+                                                "name": "partner 1"
+                                            }
+                                        ]
+                                    },
+									{
+										"name": "machine learning",
+										"children": [
+											{
+												"name": "partner 2"
+											}
+										]
+									}
+                                ]
+                            }
+                        ]
+                    },
+					{
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "value speed",
+                                        "children": [
+                                            {
+                                                "name": "group xyz"
+                                            }
+                                        ]
+                                    },
+									{
+                                        "name": "modularity",
+                                        "children": [
+                                            {
+                                                "name": "flat design"
+                                            },
+											{
+												"name": "custom onboard"
+											}
+                                        ]
+                                    },
+									{
+                                        "name": "geo-spatial",
+                                        "children": [
+                                            {
+                                                "name": "group 2"
+                                            },
+											{
+												"name": "ABC group"
+											}
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+					{
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "people analytics",
+                                "children": [
+                                    {
+                                        "name": "value speed",
+                                        "children": [
+                                            {
+                                                "name": "group xyz"
+                                            }
+                                        ]
+                                    },
+									{
+                                        "name": "modularity",
+                                        "children": [
+                                            {
+                                                "name": "flat design"
+                                            },
+											{
+												"name": "custom onboard"
+											}
+                                        ]
+                                    },
+									{
+                                        "name": "geo-spatial",
+                                        "children": [
+                                            {
+                                                "name": "group 2"
+                                            },
+											{
+												"name": "ABC group"
+											}
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+					{
+                        "name": "rain",
+                        "children": [
+                            {
+                                "name": "threat",
+                                "children": [
+                                    {
+                                        "name": "value speed",
+                                        "children": [
+                                            {
+                                                "name": "group xyz"
+                                            }
+                                        ]
+                                    },
+									{
+                                        "name": "modularity",
+                                        "children": [
+                                            {
+                                                "name": "flat design"
+                                            },
+											{
+												"name": "custom onboard"
+											}
+                                        ]
+                                    },
+									{
+                                        "name": "geo-spatial",
+                                        "children": [
+                                            {
+                                                "name": "group 2"
+                                            },
+											{
+												"name": "ABC group"
+											}
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
             {
                 "name": "standard",
                 "children": [
                     {
-                        "name": "name"
-                    },
-                    {
-                        "name": "id"
-                    },
-                    {
-                        "name": "guideline",
+                        "name": "standard",
                         "children": [
                             {
-                                "name": "name"
-                            },
-                            {
-                                "name": "id"
-                            },
-                            {
-                                "name": "specification",
+                                "name": "guideline",
                                 "children": [
                                     {
-                                        "name": "name"
+                                        "name": "specification",
+                                        "children": [
+                                            {
+                                                "name": "rule"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "aspect ratio"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "colorspace"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "font"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "functional"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "2D"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "button interaction",
+                                        "children": [
+                                            {
+                                                "name": "2D"
+                                            },
+                                            {
+                                                "name": "font"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "category palette",
+                                        "children": [
+                                            {
+                                                "name": "colorspace"
+                                            },
+                                            {
+                                                "name": "swatch order"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "min size",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "aspect ratio"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "padding",
+                                "children": [
+                                    {
+                                        "name": "weight",
+                                        "children": [
+                                            {
+                                                "name": "font"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "cursor",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "functional"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "mouseover",
+                                "children": [
+                                    {
+                                        "name": "weight",
+                                        "children": [
+                                            {
+                                                "name": "font"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "cursor",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "functional"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "",
+                        "children": [
+                            {
+                                "name": "focus",
+                                "children": [
+                                    {
+                                        "name": "weight",
+                                        "children": [
+                                            {
+                                                "name": "font"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "cursor",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "functional"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "bar chart",
+                        "children": [
+                            {
+                                "name": "placement",
+                                "children": [
+                                    {
+                                        "name": "weight",
+                                        "children": [
+                                            {
+                                                "name": "font"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "swatch count",
+                                "children": [
+                                    {
+                                        "name": "category palette",
+                                        "children": [
+                                            {
+                                                "name": "colorspace"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "story transition",
+                        "children": [
+                            {
+                                "name": "",
+                                "children": [
+                                    {
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "aspect ratio"
+                                            }
+                                        ]
                                     },
                                     {
-                                        "name": "id"
-                                    },
+                                        "name": "",
+                                        "children": [
+                                            {
+                                                "name": "colorspace"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "single line",
+                                "children": [
                                     {
-                                        "name": "description"
-                                    },
-                                    {
-                                        "name": "type"
-                                    },
-                                    {
-                                        "name": "layout"
+                                        "name": "easing",
+                                        "children": [
+                                            {
+                                                "name": "functional"
+                                            }
+                                        ]
                                     }
                                 ]
                             }
@@ -562,8 +1433,8 @@ router.get(baseUrl + "/:section", function(req, res) {
                     }
                 ]
             }
-		]
-	};
+        ]
+    };
         var categories = {
 		"name": "categories",
 		"children": [

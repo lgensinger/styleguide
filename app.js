@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 app.use(require("./routes/section"));
 app.use(require("./routes/app"));
 app.use(require("./routes/stack"));
+app.use(require("./routes/item"));
 
 // static front end
 app.use("/", express.static(__dirname + "/www"));

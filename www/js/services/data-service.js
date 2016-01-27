@@ -107,7 +107,19 @@ angular.module("data-service", [])
     
     
     
-    // add nav
+    // add item
+    dataService.addItem = function(name) {
+
+        // set up a valid object
+        var data = {
+            "name": name
+        };
+
+        return $http.post(urlBase + "item", data);
+
+    };
+	
+	// add nav
     dataService.addNav = function(name, navigation, label, description) {
 
         // set up a valid object
@@ -118,7 +130,6 @@ angular.module("data-service", [])
             "label": label
         };
 
-        // post it real good
         return $http.post(urlBase + "section", data);
 
     };
@@ -140,11 +151,21 @@ angular.module("data-service", [])
             "label": label
         };
 
-        // post it real good
         return $http.put(urlBase + "section/" + id, data);
 
     };
     
+	
+	
+	
+	
+	
+	// remove item
+    dataService.removeItem = function(id) {
+
+        return $http.delete(urlBase + "item/" + id);
+
+    };
     
     return dataService;
 

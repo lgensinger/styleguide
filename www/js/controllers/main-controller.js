@@ -1,6 +1,6 @@
 angular.module("main-controller", [])
 
-.controller("mainCtrl", [ "$scope", "$state", "dataService", function($scope, $state, dataService) {
+.controller("mainCtrl", [ "$scope", "$state", "$stateParams", "dataService", function($scope, $state, $stateParams, dataService) {
 	
 	/**************************/
     /********* !DATA **********/
@@ -58,16 +58,31 @@ angular.module("main-controller", [])
         $scope.idx = idx;
         
     };
+	
+	// remove item
+    $scope.removeItem = function(id) {
+        dataService.removeItem(id).then(function(data) {
+			$state.go($state.$current.name, $stateParams, {
+				reload: true
+			});
+		});
+    };
     
     // add new navigation
     $scope.addNav = function(name, navigation, label, description) {
         dataService.addNav(name, navigation, label, description).then(function(data) {
+			$state.go($state.$current.name, $stateParams, {
+				reload: true
+			});
 		});
     };
     
     // edit navigation
     $scope.editNav = function(id, name, navigation, label, description) {
         dataService.editNav(id, name, navigation, label, description).then(function(data) {
+			$state.go($state.$current.name, $stateParams, {
+				reload: true
+			});
 		});
     };
 
