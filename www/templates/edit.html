@@ -1,0 +1,21 @@
+<hgroup>
+	
+	<h1>Edit {{ formName }}</h1>
+	
+</hgroup>
+
+<form name="edit">
+
+    <label ng-repeat="field in editFields.fields">{{ field.label }}
+
+        <input type="text"
+               name="{{ field.label }}"
+               ng-model="field.value"
+               ng-readonly="field.label == 'id'">
+
+    </label>
+
+    <button type="button"
+        ng-click="submit(editFields, editFields.id);">Submit</button>
+
+</form>

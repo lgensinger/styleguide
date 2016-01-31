@@ -14,6 +14,9 @@ angular.module("add-controller", [])
     /**************************/
 	
 	$scope.name;
+	$scope.items;
+	
+	getItems();
 	    
 	
 	
@@ -55,6 +58,18 @@ angular.module("add-controller", [])
     /*******************************/
     /********* !FUNCTIONS **********/
     /*******************************/
+	
+	function getItems() {
+		dataService.getItems().then(function(data) {
+                        
+            // assign to scope
+			$scope.items = data;
+			
+			$scope.section = { type: "item", nav: "items" };
+            
+		});
+		
+	};
     
 	
 }]);

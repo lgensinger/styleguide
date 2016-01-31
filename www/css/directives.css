@@ -12,6 +12,7 @@
 /* --- !radial tree
 /* --- !dendrogram
 /* --- !content slider
+/* --- !db item
 
 /******************************* !IMPORTS *******************************/
 @import url("main.css");
@@ -123,73 +124,15 @@ dendrogram text {
 	
 }
 
+/****************************/
+/********* !db item *********/
+/****************************/
 
-
-/*---------------------------------------------------------
-NAV
----------------------------------------------------------*/
-
-.nav {
-    text-align: center;
-    display: block;
-    position: absolute;
-    z-index: 1002;
-    left: 0;
-    bottom: 5em;
-    right: 0;
-    height: 48px;
-}
-
-.nonDraggableImage{
-    -webkit-user-drag: none;
-}
-
-.nav .wrapper {
-    margin: 0 auto;
-    width: 100%;
-    padding: 1em 0 .8em;
-}
-
-.nav ul {
-    margin: 0;
-    width: 100%;
-}
-
-.nav .dot, .nav .dot a {
-    display: inline-block;
-}
-
-.dots .dot {
-    position: relative;
-    margin: 0 8px;
-    width: 12px;
-    height: 12px;
-}
-
-.dots .dot a {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 0.75em;
-    height: 0.75em;
-    text-indent: 150%;
-    white-space: nowrap;
-    overflow: hidden;
-    background: rgb(212,212,212);
-    border: 1px solid currentColor;
-    outline: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    -webkit-transition: background-color 0.25s, border-color 0.25s;
-    -moz-transition: background-color 0.25s, border-color 0.25s;
-    transition: background-color 0.25s, border-color 0.25s;
-}
-
-.dots .dot a.active {
-    border-color: currentColor;
-    background-color: rgb(35,34,34);
+db-item ul,
+db-item li {
+	
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+	
 }

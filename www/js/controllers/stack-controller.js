@@ -28,8 +28,18 @@ angular.module("stack-controller", [])
         getStack(nav);
 		
 	});
-    
+	
+	
+	// item index changes
+	$scope.$on("itemIdxChange", function(event, args) {
+console.log("index change");console.log(args);
+		var idx = args.val;
 
+		// control slider navigation
+		$scope.idx = idx;
+
+	});
+	
 	
     
     /****************************/

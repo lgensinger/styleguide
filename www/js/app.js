@@ -41,6 +41,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: "templates/add.html",
         controller: "addCtrl"
     })
+    
+    // edit items
+    .state("app.edit", {
+        url: "db?:edit",
+        templateUrl: "templates/edit.html",
+        controller: "editCtrl"
+    })
 	
 	// nav section view
 	.state("app.section", {

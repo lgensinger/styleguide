@@ -21,4 +21,17 @@ body {
     
 }
 
+/* text inputs */
+input:not([type=submit]):not([type=file]) {
+	
+	background: rgb(195, 193, 193);
+	
+}
+
+input:not([type=submit]):not([type=file]):focus {
+	
+	background: rgb(219, 219, 219);
+	
+}
+
 /******************************* !CUSTOM *******************************/

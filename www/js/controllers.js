@@ -3,5 +3,6 @@ var app = angular.module("app.controllers", [
 	"section-controller",
     "stack-controller",
 	"detail-controller",
-	"add-controller"
+	"add-controller",
+    "edit-controller"
 ]);

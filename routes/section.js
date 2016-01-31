@@ -18,7 +18,7 @@ router.get(baseUrl, function(req, res) {
     pg.connect(conString, function(err, client, done) {
                 
         // SQL query
-        var query = client.query("select db.label as nav,db.type as type,array_agg(row_to_json(r))as items from db db,query_table(db.name)as r where navigation=true group by db.label,db.type;");
+        var query = client.query("select db.label,db.type,db.id,db.navigation,array_agg(row_to_json(r)) as items from db db,query_table(db.name) as r where navigation = true group by db.label,db.type,db.id,db.navigation;");
         
         // stream results back one row at a time
         query.on("row", function(row) {
@@ -107,7 +107,7 @@ router.put(baseUrl + "/:id", function(req, res) {
         }
 
         // SQL Query > Update Data
-        client.query("update db set name='" + putData.name + "',description='" + putData.description + "',navigation='" + putData.navigation + "',label= '" + putData.label + "' where id = " + id + ";");
+        client.query("update db set navigation='" + putData.navigation + "',label= '" + putData.label + "' where id = " + id + ";");
 
         // SQL Query > Select Data
         var query = client.query("SELECT * FROM db ORDER BY id desc");

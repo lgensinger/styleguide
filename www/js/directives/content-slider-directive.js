@@ -4,36 +4,49 @@ angular.module("content-slider-directive", [])
 	return {
 		restrict: "E",
 		scope: {
-			vizData: "="
+			vizData: "=",
+			idx: "="
 		},
         controller: function($scope) {
-            
-            var mainScope = $scope.$parent.$parent;
-            
-            $scope.section = $stateParams.nav;
                         
-             // control slider navigation
-            $scope.currentIndex = mainScope.idx;
+            $scope.section = $stateParams.nav;
 
-            $scope.setCurrentSlideIndex = function(idx) {
-                $scope.currentIndex = idx;
-            };
-
-            $scope.isCurrentSlideIndex = function(idx) {
-                return $scope.currentIndex === idx;
-            };
-
-            $scope.previous = function() {
+            /*$scope.previous = function() {console.log($scope.currentIndex);
                 $scope.currentIndex = ($scope.currentIndex < $scope.vizData.length - 1) ? ++$scope.currentIndex : 0;
             };
 
             $scope.next = function() {
                 $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.vizData.length - 1;
-            };
+            };*/
             
         },
 		templateUrl: "templates/content-slider.html",
 		link: function(scope, element, attrs) {
+			
+			scope.$watch("idx", function(newData, oldData) {
+				
+				// async check
+				if (newData !== undefined) {
+					//console.log("data is ready");
+
+					// check new vs old
+					var isMatching = angular.equals(newData, oldData);
+
+					// if false
+					if (!isMatching) {
+
+						// control slider navigation
+						scope.currentIndex = newData;
+
+						scope.isCurrentSlideIndex = function(idx) {
+							return scope.currentIndex === idx;
+						};
+
+					};
+					
+				};
+				
+			});
 			
 		}
 		

@@ -11,6 +11,7 @@
 /* !CUSTOM
 /* --- !overlay
 /* --- !overlay transition
+/* --- !add content
 
 /******************************* !IMPORTS *******************************/
 @import url("main.css");
@@ -22,8 +23,24 @@
 /* main content area */
 main > section {
     
+	padding: 60px;
     position: relative;
     top: 150px; 
+    
+}
+
+/* section header */
+main > section hgroup {
+	
+	font-size: 2em;
+    margin-bottom: 1em;
+	
+}
+
+/* form labels */
+form label {
+    
+    display: block;
     
 }
 
@@ -154,7 +171,7 @@ nav > p {
 
 /* each section & link lists */
 nav > section,
-nav > section > ul {
+nav > section db-item ul {
     
     align-items: center;
     display: flex;
@@ -298,6 +315,31 @@ nav > section a:hover {
 	
 }
 
+/********************************/
+/********* !add content *********/
+/********************************/
+
+/* form wrap - need better more semantic way to author */ 
+main > section hgroup + div {
+	
+	display: flex;
+	
+}
+
+/* form */
+main > section hgroup + div form {
+	
+	flex-grow: 2;
+	
+}
+
+/* existing items */
+main > section hgroup + div > div {
+	
+	flex-grow: 1;
+	
+}
+
 /******************************* !CUSTOM *******************************/
 
 .small {
@@ -317,4 +359,10 @@ nav > section a:hover {
     
     color: orangered;
     
+}
+
+.active {
+	
+	color: purple;
+	
 }

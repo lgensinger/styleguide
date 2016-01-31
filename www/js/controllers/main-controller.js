@@ -6,7 +6,6 @@ angular.module("main-controller", [])
     /********* !DATA **********/
     /**************************/
 	
-    $scope.idx = 0; // navigation starting index
 	$scope.isOpen = false; // global header/nav
 	$scope.nav;
     $scope.title;
@@ -51,35 +50,40 @@ angular.module("main-controller", [])
 		return str;
 	};
     
-    // capture clicked nav item index
-    $scope.getIdx = function(idx) {
+    // edit item
+    $scope.edit = function(section) {
         
-        // set the index for the slider
-        $scope.idx = idx;
+        // format the objects to be more angular friendly
+        // for ease of use in forms
         
-    };
-	
-	// remove item
-    $scope.removeItem = function(id) {
-        dataService.removeItem(id).then(function(data) {
-			$state.go($state.$current.name, $stateParams, {
-				reload: true
-			});
-		});
+        var disclude = "items, id";
+        var keys = Object.keys(section);
+        var fields = [];
+        
+        angular.forEach(keys, function(value, key) {
+            
+            // check against keys not wanted in forms
+            if (disclude.match(value) == null && value != "$$hashKey") {
+                
+                var obj = {};
+                obj["label"] = value;
+                obj["value"] = section[value];
+                
+                // add to fields
+                this.push(obj);
+                
+            };
+            
+        }, fields);
+               
+        // get info to pass to edit
+        $scope.editFields = { fields: fields, id: section.id };
+        
     };
     
     // add new navigation
     $scope.addNav = function(name, navigation, label, description) {
         dataService.addNav(name, navigation, label, description).then(function(data) {
-			$state.go($state.$current.name, $stateParams, {
-				reload: true
-			});
-		});
-    };
-    
-    // edit navigation
-    $scope.editNav = function(id, name, navigation, label, description) {
-        dataService.editNav(id, name, navigation, label, description).then(function(data) {
 			$state.go($state.$current.name, $stateParams, {
 				reload: true
 			});

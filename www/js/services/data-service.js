@@ -54,7 +54,7 @@ angular.module("data-service", [])
             return data.data;
             
         });
-		console.log(apiUrl);
+		
     };
     
     // app
@@ -76,7 +76,7 @@ angular.module("data-service", [])
     dataService.getSection = function(section) {
         
         var apiUrl = urlBase + section;
-            console.log(apiUrl);
+            
         // call data
         return $http.get(apiUrl).then(function(data) {
             
@@ -91,7 +91,7 @@ angular.module("data-service", [])
 	dataService.getDetail = function(section, id) {
         
         var apiUrl = urlBase + section + "/" + id;
-            console.log(apiUrl);
+            
         // call data
         return $http.get(apiUrl).then(function(data) {
             
@@ -141,15 +141,22 @@ angular.module("data-service", [])
     
     
     // edit nav
-    dataService.editNav = function(id, name, navigation, label, description) {
-
+    dataService.editNav = function(form, id) {
+        
         // set up a valid object
-        var data = {
-            "name": name,
-            "description": description,
-            "navigation": navigation,
-            "label": label
-        };
+        var data = {};
+        
+        angular.forEach(form.fields, function(value, key) {
+            
+            // check for id
+            if (value.label != 'id') {
+            
+                // add to data object
+                data[value.label] = value.value;
+                
+            };
+            
+        });
 
         return $http.put(urlBase + "section/" + id, data);
 
