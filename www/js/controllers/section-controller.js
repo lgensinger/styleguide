@@ -1,6 +1,6 @@
 angular.module("section-controller", [])
 
-.controller("sectionCtrl", ["$scope", "sectionData", "dataService", function($scope, sectionData, dataService) {
+.controller("sectionCtrl", ["$scope", "$stateParams", "dataService", function($scope, $stateParams, dataService) {
     
 	var mainScope = $scope.$parent;
 	
@@ -13,8 +13,10 @@ angular.module("section-controller", [])
     /********* !DATA **********/
     /**************************/
     
-    $scope.section = sectionData[1];
-    $scope.api = sectionData[0];
+    $scope.section;
+    $scope.api;
+    
+    getSection($stateParams.section, "specification");
         
 
     
@@ -27,6 +29,17 @@ angular.module("section-controller", [])
     /*******************************/
     /********* !FUNCTIONS **********/
     /*******************************/
+    
+    function getSection(section, table) {
+		dataService.getSection(section, table).then(function(data) {
+                        
+            // assign to scope
+			$scope.section = data[1];
+            $scope.api = data[0];
+            
+		});
+		
+	};
     
     
     

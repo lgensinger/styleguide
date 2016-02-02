@@ -75,6 +75,7 @@ router.get(baseUrl + "/:section", function(req, res) {
     pg.connect(conString, function(err, client, done) {
         
         var section = req.params.section;
+        var tableName = req.query.table;
         
         var brands = {
 		"name": "rubicon",
@@ -1475,6 +1476,8 @@ router.get(baseUrl + "/:section", function(req, res) {
             results.push(categories);
         } else if(section == "specifications") {
             results.push(specs);
+        } else if(section == "text") {
+            results.push(specs);
         };
         
 		
@@ -1489,7 +1492,7 @@ router.get(baseUrl + "/:section", function(req, res) {
 		var sectionFormat = lastOne == "i" ? section : (lastThree == "ies" ? allButLastThree + "y" : allButLastOne);
         
         // SQL query
-        var query = client.query("select db.label as name,db.description as description,array_agg(row_to_json(r)) as items from db db,(select * from " + sectionFormat + ") r where db.label = '" + section + "' group by db.label,db.description;");
+        var query = client.query("select db.label as name,db.description as description,array_agg(row_to_json(r)) as items from db db,(select * from " + tableName + ") r where db.label = '" + section + "' group by db.label,db.description;");
         
         // stream results back one row at a time
         query.on("row", function(row) {

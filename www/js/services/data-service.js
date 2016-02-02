@@ -73,12 +73,17 @@ angular.module("data-service", [])
     };
     
     // section
-    dataService.getSection = function(section) {
+    dataService.getSection = function(section, table) {
         
         var apiUrl = urlBase + section;
-            
+        
+        // set up query params to use in route
+        var data = {
+            params: { table: table}
+        };
+        
         // call data
-        return $http.get(apiUrl).then(function(data) {
+        return $http.get(apiUrl, data).then(function(data) {
             
             // return data
             return data.data;

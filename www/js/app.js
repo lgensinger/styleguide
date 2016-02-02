@@ -53,12 +53,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	.state("app.section", {
         url: "{section}",
         templateUrl: "templates/section.html",
-        controller: "sectionCtrl",
-        resolve: {
-            sectionData: function(dataService, $stateParams) {
-                return dataService.getSection($stateParams.section);
-            }
-        }
+        controller: "sectionCtrl"
     })
     
     // stack view
