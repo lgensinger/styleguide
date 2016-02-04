@@ -1,21 +1,29 @@
 <hgroup>
 	
-	<h1>Edit {{ formName }}</h1>
+	<h1>Edit</h1>
+    <p>Select one to edit properties.</p>
 	
 </hgroup>
 
-<form name="edit">
+<nav>
+    
+    <a ng-repeat="table in tables"
+       ui-sref="app.edit({ table: table.name })"
+       ng-click="editTable(table.id);">{{ table.name }}</a>
+    
+</nav>
 
-    <label ng-repeat="field in editFields.fields">{{ field.label }}
+<form name="edit">
+    
+    <label ng-repeat="field in fields">{{ field.label }}
 
         <input type="text"
                name="{{ field.label }}"
                ng-model="field.value"
-               ng-readonly="field.label == 'id'">
+               ng-readonly="field.readonly">
 
     </label>
 
-    <button type="button"
-        ng-click="submit(editFields, editFields.id);">Submit</button>
+    <button type="button">Submit</button>
 
 </form>

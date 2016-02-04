@@ -65,7 +65,7 @@ router.post(baseUrl, function(req, res) {
         client.query("insert into item(modified,created,name) values(now(),now(),'" + postData.name + "')");
 
         // SQL Query > Select Data
-        var query = client.query("select * from db order by id desc");
+        var query = client.query("select * from nav order by id desc");
 
         // Stream results back one row at a time
         query.on('row', function(row) {
@@ -110,7 +110,7 @@ router.put(baseUrl + "/:id", function(req, res) {
         client.query("update db set name='" + putData.name + "',description='" + putData.description + "',navigation='" + putData.navigation + "',label= '" + putData.label + "' where id = " + id + ";");
 
         // SQL Query > Select Data
-        var query = client.query("SELECT * FROM db ORDER BY id desc");
+        var query = client.query("SELECT * FROM nav ORDER BY id desc");
 
         // Stream results back one row at a time
         query.on('row', function(row) {

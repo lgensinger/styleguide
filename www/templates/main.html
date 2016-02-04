@@ -48,7 +48,7 @@
             
             <button type="button"
 					class="small"
-					ui-sref="app.edit({ edit: 'all' })">Edit</button>
+					ui-sref="app.edit">Edit</button>
 			
 		</hgroup>
 		
@@ -60,7 +60,7 @@
 				<!-- SUBHEAD -->
 				<a ui-sref="app.section({ section: section.label })">{{ section.label }}</a>
                 
-                <a ui-sref="app.edit({ edit: section.label })"
+                <a ui-sref="app.edit({ table: section.table })"
                    ng-click="edit(section);">edit</a>
 				
 				<!-- GROUP -->

@@ -7,6 +7,7 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 // backend API
+app.use(require("./routes/database"));
 app.use(require("./routes/item"));
 app.use(require("./routes/section"));
 app.use(require("./routes/app"));

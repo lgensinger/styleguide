@@ -18,7 +18,7 @@ router.get(baseUrl, function(req, res) {
     pg.connect(conString, function(err, client, done) {
                 
         // SQL query
-        var query = client.query("select db.label,db.type,db.id,db.navigation,array_agg(row_to_json(r)) as items from db db,query_table(db.name) as r where navigation = true group by db.label,db.type,db.id,db.navigation;");
+        var query = client.query("select nav.label,nav.type,nav.id,nav.navigation,nav.name as table,array_agg(row_to_json(r)) as items from nav nav,query_table(nav.name) as r where navigation = true group by nav.label,nav.type,nav.id,nav.navigation,nav.name;");
         
         // stream results back one row at a time
         query.on("row", function(row) {
@@ -62,10 +62,10 @@ router.post(baseUrl, function(req, res) {
         var postData = req.body;
 
         // SQL Query > Insert Data
-        client.query("insert into db(modified,created,name,description,navigation,label) values(now(),now(),'" + postData.name + "','" + postData.description + "'," + postData.navigation + ",'" + postData.label + "')");
+        client.query("insert into nav(modified,created,name,description,navigation,label) values(now(),now(),'" + postData.name + "','" + postData.description + "'," + postData.navigation + ",'" + postData.label + "')");
 
         // SQL Query > Select Data
-        var query = client.query("select * from db order by id desc");
+        var query = client.query("select * from nav order by id desc");
 
         // Stream results back one row at a time
         query.on('row', function(row) {
@@ -107,10 +107,10 @@ router.put(baseUrl + "/:id", function(req, res) {
         }
 
         // SQL Query > Update Data
-        client.query("update db set navigation='" + putData.navigation + "',label= '" + putData.label + "' where id = " + id + ";");
+        client.query("update nav set navigation='" + putData.navigation + "',label= '" + putData.label + "' where id = " + id + ";");
 
         // SQL Query > Select Data
-        var query = client.query("SELECT * FROM db ORDER BY id desc");
+        var query = client.query("SELECT * FROM nav ORDER BY id desc");
 
         // Stream results back one row at a time
         query.on('row', function(row) {

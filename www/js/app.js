@@ -44,7 +44,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     
     // edit items
     .state("app.edit", {
-        url: "db?:edit",
+        url: "edit?:table",
         templateUrl: "templates/edit.html",
         controller: "editCtrl"
     })

@@ -30,7 +30,7 @@ router.get(baseUrl + "/:section" + "/:id", function(req, res) {
         var allButLastTwo = section.substring(0, section.length - 2);
         var allButLastThree = section.substring(0, section.length - 3);
         
-        // format stack so url is user friendly but db is still all in singular format
+        // format stack so url is user friendly but nav is still all in singular format
 		var sectionFormat = lastOne == "i" ? section : (lastThree == "ies" ? allButLastThree + "y" : (lastThree == "hes" ? allButLastTwo : allButLastOne));
         
         // check the param type
@@ -1488,11 +1488,11 @@ router.get(baseUrl + "/:section", function(req, res) {
         var allButLastOne = section.substring(0, section.length -1);
         var allButLastThree = section.substring(0, section.length - 3);
         
-        // format stack so url is user friendly but db is still all in singular format
+        // format stack so url is user friendly but nav is still all in singular format
 		var sectionFormat = lastOne == "i" ? section : (lastThree == "ies" ? allButLastThree + "y" : allButLastOne);
         
         // SQL query
-        var query = client.query("select db.label as name,db.description as description,array_agg(row_to_json(r)) as items from db db,(select * from " + tableName + ") r where db.label = '" + section + "' group by db.label,db.description;");
+        var query = client.query("select nav.label as name,nav.description as description,array_agg(row_to_json(r)) as items from nav nav,(select * from " + tableName + ") r where nav.label = '" + section + "' group by nav.label,nav.description;");
         
         // stream results back one row at a time
         query.on("row", function(row) {

@@ -37,6 +37,12 @@ main > section hgroup {
 	
 }
 
+main > section hgroup p {
+    
+    font-size: 0.5em;
+    
+}
+
 /* form labels */
 form label {
     
@@ -135,7 +141,7 @@ header .icon {
 }
 
 /* navigation & app info */
-nav,
+main > header > nav,
 header hgroup {
 	
 	bottom: 0;
@@ -154,7 +160,7 @@ header hgroup {
 }
 
 /* description text */
-nav > p {
+main > header > nav > p {
 	
 	font-size: 1.25em;
 	font-weight: 300;
@@ -170,8 +176,8 @@ nav > p {
 }
 
 /* each section & link lists */
-nav > section,
-nav > section db-item ul {
+main > header > nav > section,
+main > header > nav > section db-item ul {
     
     align-items: center;
     display: flex;
@@ -179,7 +185,7 @@ nav > section db-item ul {
 }
 
 /* section */
-nav > section {
+main > header > nav > section {
 	
 	margin-top: 0.8em;
 	overflow: hidden;
@@ -187,14 +193,14 @@ nav > section {
 }
 
 /* all but last section */
-nav > section:not(:last-child) {
+main > header > nav > section:not(:last-child) {
 	
 	margin-bottom: 0.8em;
 	
 }
 
 /* section subheads */
-nav > section > a {
+main > header > nav > section > a {
 	
 	font-family: "Source Sans Pro Bold", sans-serif;
 	font-size: 0.7em;
@@ -205,7 +211,7 @@ nav > section > a {
 }
 
 /* links */
-nav > section li {
+main > header > nav > section li {
 	
 	padding-bottom: 0.3em;
 	padding-left: 0.5em;
@@ -220,16 +226,35 @@ nav > section li {
 }
 
 /* link text */
-nav > section a {
+main > header > nav > section a {
     
     white-space: nowrap;
     
 }
 
-nav > section a:hover {
+main > header > nav > section a:hover {
 	
 	color: grey;
 	
+}
+
+section > nav {
+    
+    background: #e5e5e5;
+    margin-bottom: 2em;
+    margin-left: -60px;
+    margin-right: -60px;
+    padding-bottom: 0.5em;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 0.5em;
+    
+}
+
+section > nav > a {
+    
+    margin-right: 1em;
+    
 }
 
 /***************************************/

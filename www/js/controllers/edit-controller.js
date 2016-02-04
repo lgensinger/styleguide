@@ -14,6 +14,10 @@ angular.module("edit-controller", [])
     /**************************/
     
     $scope.formName = $stateParams.edit;
+    $scope.tables;
+    $scope.fields;
+    
+    getTables(); // populate all tables
     
     // nav changes
 	$scope.$on("navChange", function(event, args) {
@@ -38,6 +42,16 @@ angular.module("edit-controller", [])
         $scope.editFields = formService.getFields(section);
 		
 	});
+    
+    $scope.$watch("fields", function(newData, oldData) {
+        
+        var isMatching = angular.equals(newData, oldData);
+        
+		if (!isMatching) {
+			$scope.$broadcast("fieldsChange", { "val": newData });console.log(newData);
+		};
+        
+	});
 	    
 	
 	
@@ -53,12 +67,32 @@ angular.module("edit-controller", [])
 			});
 		});
     };
+    
+    $scope.editTable = function(id) {
+        dataService.getTables(id).then(function(data) {
+            
+            // assign to scope
+            $scope.fields = data;
+            
+        });
+        
+    };
 
 		
 	
     /*******************************/
     /********* !FUNCTIONS **********/
     /*******************************/
+    
+    function getTables() {
+		dataService.getTables().then(function(data) {
+                        
+            // assign to scope
+			$scope.tables = data;
+            
+		});
+		
+	};
     
 	
 }]);
