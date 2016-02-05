@@ -9,21 +9,11 @@
     
     <a ng-repeat="table in tables"
        ui-sref="app.edit({ table: table.name })"
-       ng-click="editTable(table.id);">{{ table.name }}</a>
+	   ui-sref-active="active">{{ table.name }}</a>
     
 </nav>
 
-<form name="edit">
-    
-    <label ng-repeat="field in fields">{{ field.label }}
-
-        <input type="text"
-               name="{{ field.label }}"
-               ng-model="field.value"
-               ng-readonly="field.readonly">
-
-    </label>
-
-    <button type="button">Submit</button>
-
-</form>
+<edit-form ng-repeat="row in rows"
+		   ng-if="rows.length > 0"
+		   form-name="row.name"
+		   form-fields="row"></edit-form>

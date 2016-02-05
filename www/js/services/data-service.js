@@ -108,17 +108,26 @@ angular.module("data-service", [])
     };
     
     // tables
-	dataService.getTables = function(id) {
+	dataService.getTables = function(table, id) {
         
         var apiUrl = urlBase + "db";
-        
-        // check id
-        if (id != null) {
+        console.log(table);
+        // check table
+		if (table != null) {
+			
+			// check id
+			if (id != null) {
             
-            apiUrl += "/" + id;
-            
-        };
-            
+				apiUrl += "/" + table + "/" + id;
+
+			} else {
+			
+				apiUrl += "/" + table;
+				
+			};
+			
+		};
+            console.log(apiUrl);
         // call data
         return $http.get(apiUrl).then(function(data) {
             

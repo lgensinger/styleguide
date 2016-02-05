@@ -10,7 +10,7 @@ var baseUrl = "/api/db";
 /*******************************/
 
 // return fields in a table
-router.get(baseUrl + "/:id", function(req, res) {
+router.get(baseUrl + "/:table", function(req, res) {
     console.log("------------ fields from one table ---------------")
     var results = [];
     
@@ -18,9 +18,12 @@ router.get(baseUrl + "/:id", function(req, res) {
     pg.connect(conString, function(err, client, done) {
         
         var id = req.params.id;
+		var table = req.params.table;
 
         // SQL query
-        var query = client.query("select f.label,f.description,f.readonly,f.id from field f where f.db = " + id + ";");
+        //var query = client.query("select f.label,f.description,f.readonly,f.id from field f where f.db = " + id + ";");
+		
+		var query = client.query("select * from " + table + ";");
         
         // stream results back one row at a time
         query.on("row", function(row) {
@@ -51,7 +54,7 @@ router.get(baseUrl, function(req, res) {
     pg.connect(conString, function(err, client, done) {
         
         // SQL query
-        var query = client.query("select * from db;");
+        var query = client.query("select * from db where edit = true;");
         
         // stream results back one row at a time
         query.on("row", function(row) {

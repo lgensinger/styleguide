@@ -1,6 +1,6 @@
 angular.module("edit-controller", [])
 
-.controller("editCtrl", [ "$scope", "$stateParams", "$state", "dataService", "formService", function($scope, $stateParams, $state, dataService, formService) {
+.controller("editCtrl", [ "$scope", "$stateParams", "$state", "dataService", function($scope, $stateParams, $state, dataService) {
 	
 	var mainScope = $scope.$parent;
 	
@@ -16,42 +16,10 @@ angular.module("edit-controller", [])
     $scope.formName = $stateParams.edit;
     $scope.tables;
     $scope.fields;
-    
-    getTables(); // populate all tables
-    
-    // nav changes
-	$scope.$on("navChange", function(event, args) {
-		
-		var nav = args.val;
-        var section = {};
-        
-        // get section obj based on state params
-        angular.forEach(nav, function(value, key) {
-            
-            // check label against param
-            if (value.label == $stateParams.edit) {
-                
-                // set the section
-                section = value;
-                
-            };
-            
-        });
-        
-        // get fields
-        $scope.editFields = formService.getFields(section);
-		
-	});
-    
-    $scope.$watch("fields", function(newData, oldData) {
-        
-        var isMatching = angular.equals(newData, oldData);
-        
-		if (!isMatching) {
-			$scope.$broadcast("fieldsChange", { "val": newData });console.log(newData);
-		};
-        
-	});
+	$scope.rows;
+   
+    getTables(); // populate all tables in nav
+	getRows($stateParams.table); // populate each row of selected table
 	    
 	
 	
@@ -67,18 +35,8 @@ angular.module("edit-controller", [])
 			});
 		});
     };
-    
-    $scope.editTable = function(id) {
-        dataService.getTables(id).then(function(data) {
-            
-            // assign to scope
-            $scope.fields = data;
-            
-        });
-        
-    };
-
 		
+	
 	
     /*******************************/
     /********* !FUNCTIONS **********/
@@ -89,6 +47,16 @@ angular.module("edit-controller", [])
                         
             // assign to scope
 			$scope.tables = data;
+            
+		});
+		
+	};
+	
+	function getRows(table) {
+		dataService.getTables(table).then(function(data) {
+                        
+            // assign to scope
+			$scope.rows = data;console.log(data);
             
 		});
 		

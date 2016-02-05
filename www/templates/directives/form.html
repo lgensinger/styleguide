@@ -1,0 +1,16 @@
+<form name="edit">
+	
+	<h1>{{ formName }}</h1>
+    
+    <label ng-repeat="field in formFields">{{ field.label }}
+
+        <input type="text"
+               name="{{ field.label }}"
+               ng-model="field.value"
+               ng-readonly="field.readonly">
+
+    </label>
+
+    <button type="button">Submit</button>
+
+</form>

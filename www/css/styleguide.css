@@ -367,12 +367,6 @@ main > section hgroup + div > div {
 
 /******************************* !CUSTOM *******************************/
 
-.small {
-	
-	font-size: 0.6em;
-	
-}
-
 /* for dev only */
 .item {
     
@@ -388,6 +382,6 @@ main > section hgroup + div > div {
 
 .active {
 	
-	color: purple;
+	color: #de1dde;
 	
 }

@@ -13,6 +13,7 @@
 /* --- !dendrogram
 /* --- !content slider
 /* --- !db item
+/* --- !edit form
 
 /******************************* !IMPORTS *******************************/
 @import url("main.css");
@@ -134,5 +135,23 @@ db-item li {
 	list-style: none;
 	margin-left: 0;
 	padding-left: 0;
+	
+}
+
+/******************************/
+/********* !edit form *********/
+/******************************/
+
+/* entire form */
+edit-form form {
+	
+	margin-bottom: 2em;
+	
+}
+
+/* form title */
+edit-form h1 {
+	
+	margin-bottom: 1em;
 	
 }
