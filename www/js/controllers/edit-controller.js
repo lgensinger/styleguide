@@ -20,6 +20,7 @@ angular.module("edit-controller", [])
    
     getTables(); // populate all tables in nav
 	getRows($stateParams.table); // populate each row of selected table
+	getFields($stateParams.table); // populate fields for table
 	    
 	
 	
@@ -56,11 +57,20 @@ angular.module("edit-controller", [])
 		dataService.getTables(table).then(function(data) {
                         
             // assign to scope
-			$scope.rows = data;console.log(data);
+			$scope.rows = data;
             
 		});
 		
 	};
-    
+	
+	function getFields(table) {
+		dataService.getTables(table).then(function(data) {
+                        
+            // assign to scope
+			$scope.fields = data[0].data;
+            
+		});
+		
+	};
 	
 }]);

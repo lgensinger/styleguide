@@ -21,9 +21,7 @@ router.get(baseUrl + "/:table", function(req, res) {
 		var table = req.params.table;
 
         // SQL query
-        //var query = client.query("select f.label,f.description,f.readonly,f.id from field f where f.db = " + id + ";");
-		
-		var query = client.query("select * from " + table + ";");
+		var query = client.query("select t.name,t.navigation,t.label,t.description,array_agg(row_to_json(r)) as data from nav t,(select f.* from field f) r group by t.name,t.navigation,t.label,t.description;");
         
         // stream results back one row at a time
         query.on("row", function(row) {
