@@ -27,6 +27,21 @@ angular.module("data-service", [])
 		
     };
 	
+	// files
+    dataService.getFiles = function() {
+        
+        var apiUrl = urlBase + "file";
+            
+        // call data
+        return $http.get(apiUrl).then(function(data) {
+            
+            // return data
+            return data.data;
+            
+        });
+		
+    };
+	
 	// sections
     dataService.getSections = function() {
         
@@ -167,6 +182,19 @@ angular.module("data-service", [])
         };
 
         return $http.post(urlBase + "section", data);
+
+    };
+	
+	// add file
+    dataService.addFile = function(name, edited) {
+
+        // set up a valid object
+        var data = {
+            "name": name,
+			"edited": edited
+        };
+
+        return $http.post(urlBase + "file", data);
 
     };
     

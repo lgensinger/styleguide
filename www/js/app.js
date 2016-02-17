@@ -1,9 +1,9 @@
 var app = angular.module("app", [
     "ui.router",
-    "app.controllers",
-    "app.directives",
-    "app.services",
-    "app.filters"
+    "styleguide.controllers",
+    "styleguide.directives",
+    "styleguide.services",
+    "styleguide.filters"
 ]);
 
 /***********************/

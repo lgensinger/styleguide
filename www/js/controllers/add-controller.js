@@ -13,10 +13,12 @@ angular.module("add-controller", [])
     /********* !DATA **********/
     /**************************/
 	
+	$scope.files;
 	$scope.name;
 	$scope.items;
 	
 	getItems();
+	getFiles();
 	    
 	
 	
@@ -67,6 +69,16 @@ angular.module("add-controller", [])
 			
 			$scope.section = { type: "item", nav: "items" };
             
+		});
+		
+	};
+	
+	function getFiles() {
+		dataService.getFiles().then(function(data) {
+                        
+            // assign to scope
+			$scope.files = data;console.log(data);
+			            
 		});
 		
 	};

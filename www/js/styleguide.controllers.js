@@ -1,4 +1,4 @@
-var app = angular.module("app.controllers", [
+var app = angular.module("styleguide.controllers", [
     "main-controller",
 	"section-controller",
     "stack-controller",
