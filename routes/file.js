@@ -1,5 +1,6 @@
 // settings
 var express = require("express");
+var fs = require("fs");
 var router = express.Router();
 var pg = require("pg");
 var conString = process.env.DATABASE_URL || "postgres://postgres:iamsocool@localhost/postgres";
@@ -9,7 +10,7 @@ var baseUrl = "/api/file";
 /************* GET *************/
 /*******************************/
 
-// get all items
+// get all files
 router.get(baseUrl, function(req, res) {
     console.log("********** all files **************")
     var results = [];
@@ -47,11 +48,11 @@ router.get(baseUrl, function(req, res) {
 /********************************/
 
 router.post(baseUrl, function(req, res) {
-
+console.log(req.files);
     var results = [];
 
     // Get a Postgres client from the connection pool
-    pg.connect(conString, function(err, client, done) {
+    /*pg.connect(conString, function(err, client, done) {
         // Handle connection errors
         if(err) {
           done();
@@ -59,10 +60,16 @@ router.post(baseUrl, function(req, res) {
           return res.status(500).json({ success: false, data: err});
         }
         
+		// files objects
         var postData = req.body;
-
-        // SQL Query > Insert Data
-        client.query("insert into upload (modified,created,name) values(now(),now(), '" + postData.name + "');");
+		
+		// loop through each file
+		for (var i=0; i < postData.length; i++) {
+			
+			// SQL Query > Insert Data
+        	client.query("insert into upload (modified,created,name) values(now(),now(), '" + postData[i].name + "');");
+			
+		};
 
         // SQL Query > Select Data
         var query = client.query("select * from upload");
@@ -78,7 +85,12 @@ router.post(baseUrl, function(req, res) {
             return res.json(results);
         });
 
-    });
+    });*/
+	
+	// write file to local folder
+	fs.writeFile("./www/assets/uploads/test.txt", "hello world", function(err) {
+		if (err) return console.log(err);
+	});
     
 });
 

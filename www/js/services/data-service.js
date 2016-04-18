@@ -186,15 +186,19 @@ angular.module("data-service", [])
     };
 	
 	// add file
-    dataService.addFile = function(name, edited) {
+    dataService.addFile = function(files) {
+		
+		// set up form data object
+		var fd = new FormData();
+		fd.append("file", files[0]);
+		console.log(files[0]);
+		// settings
+		var configs = {
+			transformRequest: angular.identity,
+			headers: {"Content-Type": undefined}
+		}
 
-        // set up a valid object
-        var data = {
-            "name": name,
-			"edited": edited
-        };
-
-        return $http.post(urlBase + "file", data);
+        return $http.post(urlBase + "file", fd, configs);
 
     };
     

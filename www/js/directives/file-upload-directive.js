@@ -7,12 +7,10 @@ angular.module("file-upload-directive", [])
 						
 			$scope.uploadFile = function(event) {
 				
-				var files = event.target.files;
-				var name = files["0"].name;
-				var edited = files["0"].lastModifiedDate;
-				
+				var fileList = event.target.files;
+
 				// add to database
-				dataService.addFile(name, edited).then(function(data) {console.log("b");
+				dataService.addFile(fileList).then(function(data) {
 					$state.go($state.current.name, $stateParams, {
 						reload: true
 					});
