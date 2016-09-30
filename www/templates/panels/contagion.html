@@ -1,0 +1,18 @@
+<!-- STORIES -->
+<section ng-repeat="story in content">
+      
+    <hgroup>
+        
+        <!-- STORY TITLE -->
+        <h2>{{ story.name }}</h2>
+        <p>{{ story.intro }}</p>
+    
+    </hgroup>
+    
+    <!-- STORY CONTROLS -->
+    <story-controls controls="story.ideas" control-type="drop-down"></story-controls>
+        	    
+    <!-- VISUALIZATION -->
+    <ui-view name="visual"></ui-view>
+
+</section>

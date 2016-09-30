@@ -1,0 +1,634 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*************************************** desktop STYLE ***************************************/
+
+/* Highest desktop specific styling. */
+
+/* !IMPORTS
+/* !GLOBALS
+/* !CUSTOM
+/* --- !item
+/* --- !menu
+/* --- !login
+/* --- !visual form
+/* --- !heuristic
+/* --- !classification
+/* !MEDIA QUERIES
+
+/******************************* !IMPORTS *******************************/
+@import url("reset.css");
+
+/******************************* !GLOBALS *******************************/
+
+html,
+body,
+h1,
+h2,
+h3 {
+
+    font-family: "body-copy-regular", "Source Sans Pro", sans-serif;
+
+}
+
+a {
+
+    color: currentColor;
+    text-decoration: none;
+
+}
+
+hgroup,
+h2,
+h3 {
+    
+    margin-bottom: 2em;
+    max-width: 500px;
+    width: 60%;
+    
+}
+
+h1, h2, h3 {
+
+    font-family: "header-regular", "Source Sans Pro Light", sans-serif;
+    font-weight: 300;
+
+}
+
+h2, h3 {
+
+    font-size: 1.5em;
+
+}
+
+hgroup h2 {
+    
+    margin-bottom: 0.5em;
+    width: 100%;
+    
+}
+
+p {
+
+    line-height: 1.4;
+    margin-bottom: 1em;
+    font-family: "body-copy-light"
+
+}
+
+button {
+
+    border: 1px;
+    border-style: solid;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 0.85em;
+    padding: 0.5em;
+
+}
+
+button:focus {
+
+    outline: none;
+
+}
+
+/******************************* !CUSTOM *******************************/
+
+/******************/
+/***** !item ******/
+/******************/
+
+/* vanilla item for lists */
+.item {
+
+    display: block;
+    padding: 0.5em;
+    position: relative;
+
+}
+
+.item.menu-item.active {
+
+    margin-left: -1em;
+    margin-right: -1em;
+    padding-left: 2em;
+    padding-right: 2em;
+
+}
+
+.item-divider {
+
+    font-size: 2em;
+    font-weight: 300;
+    margin-bottom: 0.25em;
+    margin-top: 1em;
+    padding: 0;
+    padding-left: 0.5em;
+
+}
+
+/******************/
+/***** !menu ******/
+/******************/
+
+/* icon */
+.menu-icon {
+
+    border: 0 none;
+    cursor: pointer;
+    font-size: 1.7em;
+    padding: 0.5em;
+
+}
+
+/* text */
+.menu-title {
+
+    padding: 1em;
+    position: relative;
+
+}
+
+/* underline */
+.menu-title:after {
+
+    bottom: 0;
+    content: '';
+    height: 1px;
+    left: 1em;
+    position: absolute;
+    width: calc(100% - 2em);
+
+}
+
+/* close button */
+.menu-title span {
+
+    cursor: pointer;
+    font-size: 0.9em;
+    position: absolute;
+    right: 1em;
+    top: 1.4em;
+
+}
+
+/* capture button */
+.capture-button {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 5rem;
+    height: 5rem;
+    line-height: 1.2rem;
+    white-space: normal;
+}
+
+.capture-button svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    fill: #505050;
+}
+
+/* loading animation */
+
+.loading {
+    position: fixed;
+    z-index: 10001;
+    width: 140px;
+    height: 190px;
+    left: 50%;
+    top: 50%;
+    margin-left: -70px;
+    margin-top: -95px;
+    background-color: white;
+    border-radius: 3px;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 26px -1px rgba(0,0,0,0.27);
+    -moz-box-shadow: 0px 0px 26px -1px rgba(0,0,0,0.27);
+    box-shadow: 0px 0px 26px -1px rgba(0,0,0,0.27);
+}
+
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+}
+.loader:before,
+.loader:after {
+  position: absolute;
+  content: '';
+}
+.loader:before {
+  width: 5.2em;
+  height: 10.2em;
+  background: #ffffff;
+  border-radius: 10.2em 0 0 10.2em;
+  top: -0.1em;
+  left: -0.1em;
+  -webkit-transform-origin: 5.2em 5.1em;
+  transform-origin: 5.2em 5.1em;
+  -webkit-animation: load2 2s infinite ease 1.5s;
+  animation: load2 2s infinite ease 1.5s;
+}
+.loader {
+  color: #545c65;
+  font-size: 11px;
+  text-indent: -99999em;
+  margin: 1.5em;
+  position: relative;
+  width: 10em;
+  height: 10em;
+  box-shadow: inset 0 0 0 1em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.loader:after {
+  width: 5.2em;
+  height: 10.2em;
+  background: #ffffff;
+  border-radius: 0 10.2em 10.2em 0;
+  top: -0.1em;
+  left: 5.1em;
+  -webkit-transform-origin: 0px 5.1em;
+  transform-origin: 0px 5.1em;
+  -webkit-animation: load2 2s infinite ease;
+  animation: load2 2s infinite ease;
+}
+@-webkit-keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+/* menu item */
+.menu-item {
+
+    padding-left: 1em;
+
+}
+
+/* theme */
+.theme-change {
+
+    font-size: 0.7em;
+    left: 5px;
+    padding-bottom: 0.25em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.1em;
+    position: relative;
+    text-transform: lowercase;
+    top: -2px;
+
+}
+
+/* user */
+.user {
+
+    padding: 1em;
+
+}
+
+.user span:last-child {
+
+    cursor: pointer;
+
+}
+
+.user span:first-child {
+
+    border-right: 1px;
+    border-right-color: currentColor;
+    border-right-style: solid;
+    font-weight: 700;
+    padding-right: 0.5em;
+    text-transform: uppercase;
+
+}
+
+.user span:last-child {
+
+    padding-left: 0.5em;
+
+}
+
+/* items */
+.menu-item {
+
+    cursor: pointer;
+    text-transform: capitalize;
+
+}
+
+/* active menu item */
+.item.active.menu-item {
+
+    margin-left: -1em;
+    margin-right: -1em;
+    padding-left: 2em;
+    padding-right: 2em;
+
+}
+
+/*******************/
+/***** !login ******/
+/*******************/
+
+/* wrap */
+.login {
+
+    left: 50%;
+    max-width: 1500px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 70%;
+
+}
+
+/* headline */
+.login hgroup h2 {
+    
+    margin-bottom: 1em;
+    
+}
+
+/* intro text */
+.login hgroup p:first-of-type {
+    
+    font-size: 1.15em;
+    margin-top: 2em;
+    
+}
+
+/* inline menu icon */
+.login hgroup i {
+    
+    margin-left: 0.45em;
+    margin-right: 0.45em;
+    
+}
+
+/* intro call to action */
+.login hgroup p:last-child {
+    
+    font-family: "body-copy-regular";
+    font-weight: 700;
+    margin-top: 2em;
+    
+}
+
+/* all personas wrap */
+.login section {
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3em;
+    padding: 0;
+    width: 100%;
+
+}
+
+/* persona wrap */
+.login section div {
+
+    cursor: pointer;
+    margin-right: 25px;
+    margin-top: 2em;
+    width: calc(33% - 12.5px);
+
+}
+
+/* persona wrap far-right elements (every third) */
+.login section div:nth-child(3n + 3) {
+    
+    margin-right: 0;
+    
+}
+
+/* persona name */
+.login section div p:first-of-type {
+
+    font-family: "body-copy-regular";
+    font-size: 1.5em;
+    text-transform: capitalize;
+
+}
+
+/* persona description */
+.login section div p:last-of-type {
+
+    max-width: 400px;
+
+}
+
+/* persona type */
+.login section div span {
+    
+    font-size: 0.8em;
+    display: inline-block;
+    margin-bottom: 1em;
+    padding: 0.25em;
+    text-transform: uppercase;
+    
+}
+
+/*************************/
+/***** !visual form ******/
+/*************************/
+
+/* wrap all cards */
+.visual-form > div {
+    
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2em;
+    
+}
+
+/* individual idea div */
+.visual-form > div > div {
+    
+    margin-bottom: 2em;
+    margin-right: 50px;
+    width: calc(15% - 40px);
+    
+}
+
+/* last individual idea div */
+.visual-form > div > div:last-of-type {
+    
+    margin-right: 0;
+    
+}
+
+/***********************/
+/***** !heuristic ******/
+/***********************/
+
+/* section wrap */
+.heuristic {
+
+    margin-bottom: 2em;
+
+}
+
+/* vis title */
+.heuristic h1 {
+
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-top: 1em;
+    text-transform: capitalize;
+
+}
+
+/* vis graphic/code/data wrap */
+.heuristic figure,
+.heuristic figcaption {
+
+    display: flex;
+
+}
+
+/* vis graphic/code/data */
+.heuristic figure > div,
+.heuristic figcaption > div {
+
+    padding: 1em;
+    width: calc(100% / 3);
+
+}
+
+/* viz guidance headline */
+.heuristic figure div p,
+.heuristic figcaption div p{
+
+    font-size: 0.8em;
+    font-weight: 700;
+    position: relative;
+    text-transform: uppercase;
+
+}
+
+/* horizontal line */
+.heuristic figure div p:after,
+.heuristic figcaption div p:after{
+
+    background: currentColor;
+    content: "";
+    height: 1px;
+    position: absolute;
+    top: -1em;
+    left: 0;
+    width: 100%;
+
+}
+
+/* code legend */
+.heuristic .code-legend {
+
+    font-weight: 400;
+    margin-left: 2em;
+    text-transform: capitalize;
+
+}
+
+.heuristic .code-legend span {
+
+    position: relative;
+
+}
+
+/* code legend item */
+.heuristic .code-legend span:before {
+
+    content: "";
+    height: 1em;
+    left: -1.2em;
+    position: absolute;
+    width: 1em;
+
+}
+
+/* code block */
+.heuristic pre {
+
+    font-size: 0.8em;
+    max-height: 200px;
+    overflow-y: scroll;
+    padding: 1em;
+
+}
+
+.heuristic pre code span {
+
+    display: inline-block;
+
+}
+
+.heuristic pre code span:not(:first-child) {
+
+    margin-left: 1em;
+
+}
+
+.heuristic .code-legend span {
+
+    margin-left: 2em;
+
+}
+
+/* bold citation */
+.heuristic small span {
+
+    font-weight: 700;
+
+}
+
+/****************************/
+/***** !classification ******/
+/****************************/
+
+/* heatmap grid */
+.classification heatmap-grid {
+    
+    display: block;
+    min-width: 500px;
+    width: 20%;
+    
+}
+
+/* TEMP bootsrap overrides */
+.label {
+    
+    color: currentColor;
+    
+}
+
+/******************************* !MEDIA QUERIES *******************************/
+
+@media (max-width: 600px) {
+    
+}

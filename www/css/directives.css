@@ -1,157 +1,41 @@
 @charset "UTF-8";
 /* CSS Document */
 
-/*************************************** styleguide STYLE ***************************************/
+/*************************************** directive STYLE ***************************************/
 
-/* Styleguide directive specific styling. */
+/* Highest directive specific styling. */
 
 /* !IMPORTS
-/* !GLOBALS
-/* !SECTIONS
 /* !CUSTOM
-/* --- !radial tree
-/* --- !dendrogram
-/* --- !content slider
-/* --- !db item
-/* --- !edit form
+/* --- !something
+
 
 /******************************* !IMPORTS *******************************/
-@import url("main.css");
-@import url("light.css");
-
-/******************************* !GLOBALS *******************************/
-
-/******************************* !SECTIONS *******************************/
 
 /******************************* !CUSTOM *******************************/
 
-/********************************/
-/********* !radial tree *********/
-/********************************/
+/* panel wrap */
+ui-view[name="panel"] {
 
-radial-tree .link {
-    
-    fill: none;
-    
+    display: block;
+    padding-bottom: 4em;
+    padding-left: 4em;
+    padding-right: 4em;
+    padding-top: 2em;
+
 }
 
-radial-tree text {
-    
-    font-size: 0.5em;
-	text-anchor: middle;
-    
-}
+/* section in panel */
+ui-view[name="panel"] section {
 
-/*******************************/
-/********* !dendrogram *********/
-/*******************************/
-
-dendrogram .link {
-    
-    fill: none;
-    stroke: #9f9f9f;
-    
-}
-
-dendrogram text {
-    
-    font-size: 0.7em;
-    
-}
-
-/***********************************/
-/********* !content slider *********/
-/***********************************/
-
-/* wrap */
-.slider {
-    
-    height: 825px;
-    margin-bottom: 3em;
-    margin-top: 2em;
-	overflow: hidden;
-    position: relative;
+    padding: 1em;
     width: 100%;
-	
+
 }
 
-/* arrow set */
-.arrows {
-	
-	align-items: center;
-	display: flex;
-	position: absolute;
-	right: 1em;
-	top: 1em;
-    z-index: 9999;
-	
-}
-
-.previous,
-.next {
-	
-	height: 1.5em;
-	opacity: 0.5;
-	
-}
-
-/* previous arrow */
-.previous {
-        
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+.position-fix {
     
+    position: absolute;
+    width: 100%;
     
-}
-
-/* next arrow */
-.next {
-        
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg);
-    
-}
-
-.previous:hover,
-.next:hover {
-	
-	opacity: 1;
-	
-}
-
-/****************************/
-/********* !db item *********/
-/****************************/
-
-db-item ul,
-db-item li {
-	
-	list-style: none;
-	margin-left: 0;
-	padding-left: 0;
-	
-}
-
-/******************************/
-/********* !edit form *********/
-/******************************/
-
-/* entire form */
-edit-form form {
-	
-	margin-bottom: 2em;
-	
-}
-
-/* form title */
-edit-form h1 {
-	
-	margin-bottom: 1em;
-	
 }

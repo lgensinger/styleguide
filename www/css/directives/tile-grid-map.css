@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+
+/*************************************** tile-grid-map directive STYLE ***************************************/
+
+
+/* tile grid map directive specific styling. */
+
+
+/* !IMPORTS
+/* !GLOBAL
+/* --- !tile grid map
+/* !CUSTOM
+
+
+/******************************* !IMPORTS *******************************/
+
+
+/******************************* !GLOBAL *******************************/
+
+
+/***************************/
+/***** !tile grid map ******/
+/***************************/
+
+tile-grid-map .leaflet-div-icon {
+    background: none;
+    border: none 0;
+    pointer-events: none;
+    text-align: center;
+}
+
+tile-grid-map .defaultHex {
+
+    fill-opacity: 1;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-opacity: 1.0;
+
+}
+
+tile-grid-map .defaultHexLabel {
+
+    font-family:  body-copy-regular;
+
+}
+
+tile-grid-map .coloredHex {
+
+    stroke-width: 2;
+    stroke-opacity: 0.0;
+    fill-opacity: 1.0;
+
+}
+
+
+tile-grid-map .deemphasizeHex.defaultHex {
+
+    stroke-opacity: 0.1;
+
+}
+
+tile-grid-map .deemphasizeHex.coloredHex {
+
+    fill-opacity: 0.1;
+    stroke-opacity: 0.1;
+
+}
+
+tile-grid-map .deemphasizeHex.defaultHexLabel {
+
+    opacity: 0.1;
+
+}
+
+tile-grid-map .leaflet-label {
+
+    border: 0;
+    background: 0;
+
+}
+
+tile-grid-map .leaflet-label.sortingGroupLabel {
+
+    font-family: "header-regular", "Source Sans Pro Light", sans-serif;
+    font-weight: 300;
+    font-size: 2em;
+
+}
+
+tile-grid-map .leaflet-label.colorGroupLabel {
+
+    font-family: "body-copy-regular";
+    font-size: 1.5em;
+
+}
+
+tile-grid-map .leaflet-label:before {
+    border: 0;
+}
+
+.tile-grid-popup .popup-container {
+    padding: 15px;
+}
+
+.tile-grid-popup hr {
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+.popup-item {
+    font-size: 1.0rem;
+    font-family: "body-copy-light", sans-serif;
+}
+
+.popup-item strong {
+    font-family: "body-copy-regular", sans-serif;
+    font-weight: bold;
+}
+
+.popup-item svg {
+    display: inline;
+    margin-left: 0.5em;
+}
+
+.tile-grid-popup h3 {
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+}
+
+.leaflet-popup-content {
+    margin: 0;
+    padding: 0;
+}
+
+.leaflet-popup-close-button+.leaflet-popup-content-wrapper .leaflet-popup-content {
+    padding: 0;
+    margin: 0;
+}
+
+.leaflet-popup-content-wrapper {
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3);
+}

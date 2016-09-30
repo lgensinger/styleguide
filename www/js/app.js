@@ -1,80 +1,102 @@
 var app = angular.module("app", [
     "ui.router",
-    "styleguide.controllers",
-    "styleguide.directives",
-    "styleguide.services",
-    "styleguide.filters"
+    "angularMoment",
+    "smoothScroll",
+    "desktop.controllers",
+    "desktop.directives",
+    "desktop.services",
+    "desktop.filters"
 ]);
 
 /***********************/
 /********* RUN *********/
 /***********************/
 
-app.run(function() {
-    
-    // run methods here
-    
+app.run(function(amMoment, $rootScope) {
+
+    /***********************/
+    /**** DESKTOP PANEL ****/
+    /***********************/
+
+    // stop propagation of event to trigger menu
+    // so menu doesn't auto hide after it's shown
+    document.addEventListener("keyup", function(e) {
+
+        if(e.keyCode === 27) {
+
+            $rootScope.$broadcast("escapedPressed", e.target);
+
+        };
+
+    });
+
+    document.addEventListener("click", function(e) {
+
+        $rootScope.$broadcast("documentClicked", e.target);
+
+    });
+
+    /****************/
+    /**** MOMENT ****/
+    /****************/
+
+    //calendar time format
+    amMoment.changeLocale('en', {
+        calendar : {
+            lastDay : '[Yesterday]',
+            sameDay : '[Today]',
+            nextDay : '[Tomorrow]',
+            lastWeek : '[Last] dddd',
+            nextWeek : '[Next] dddd',
+            sameElse : 'D MMMM YYYY'
+        }
+    });
+
 });
 
 /**************************/
 /********* CONFIG *********/
 /**************************/
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider, $compileProvider) {
 
-	/****************/
-	/**** ROUTES ****/
-	/****************/
+    $compileProvider.debugInfoEnabled(false);
 
-	$stateProvider
-    
-    // main app (shared structure)
+    /****************/
+    /**** ROUTES ****/
+    /****************/
+
+    $stateProvider
+
+    // main
     .state("app", {
-        url: "/",
-        templateUrl: "templates/main.html",
-        controller: "mainCtrl"
+        url: "/{workspace}?:t",
+        //abstract: true,
+        templateUrl: "templates/app-global/app.html",
+        controller: "appCtrl",
+        params: {
+            t: theme_config.ui.start
+        }
     })
-	
-	// add items
-    .state("app.add", {
-        url: "add",
-        templateUrl: "templates/add.html",
-        controller: "addCtrl"
-    })
-    
-    // edit items
-    .state("app.edit", {
-        url: "edit?:table",
-        templateUrl: "templates/edit.html",
-        controller: "editCtrl"
-    })
-	
-	// nav section view
-	.state("app.section", {
-        url: "{section}",
-        templateUrl: "templates/section.html",
-        controller: "sectionCtrl"
-    })
-    
-    // stack view
-    .state("app.stack", {
-        url: "{nav}/{stack}",
-        templateUrl: "templates/stack.html",
-        controller: "stackCtrl"
-    })
-	
-	// detail view
-    /*.state("app.detail", {
-        url: "{nav}/{name}",
-        templateUrl: "templates/detail.html",
-        controller: "detailCtrl",
-		resolve: {
-            stackData: function(dataService, $stateParams) {
-                return dataService.getStack($stateParams.stack);
+
+    // panel
+    /*.state("app.panel", {
+        url: "/{panel}",
+        views: {
+            "panel": {
+                templateProvider: function($http, $stateParams) {
+                    return $http.get("templates/panels/" + $stateParams.panel + ".html").then(function(template) {
+                        return template.data;
+                    });
+                },
+                controller: "panelCtrl"
+            },
+            "slide": {
+                templateUrl: "templates/app-global/slide-panel.html"
             }
         }
-    })*/
+    });*/
 
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/" + state_config.start + "?t=" + theme_config.ui.start);
 
 });
