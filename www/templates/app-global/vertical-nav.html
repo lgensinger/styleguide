@@ -1,0 +1,14 @@
+<nav role="navigation" ng-class="'items-' + navItems.length">
+	
+    <div ng-repeat="item in navItems">
+        
+        <a id="{{ item.url_name }}"
+           ui-sref="app.panel({ panel: item.url_name })" 
+           ng-class="{ 'active': panelParam == item.url_name }"
+           ng-click="changeItem($event, $index);">{{ item.name }}:</a>
+    
+        <horizontal-slide-nav parent-id="item.panel_id"></horizontal-slide-nav>
+        
+    </div>
+
+</nav>

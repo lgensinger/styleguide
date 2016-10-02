@@ -18,6 +18,7 @@
 /* --- !heuristic
 /* --- !line chart
 /* --- !heatmap grid
+/* --- !vertical nav
 
 /******************************* !IMPORTS *******************************/
 
@@ -26,7 +27,6 @@
 html, body {
     
     background: rgb(244, 244, 244);
-    background-image: url("images/img-noise-361x370.png") !important;
     
 }
 
@@ -312,5 +312,30 @@ line-chart .line circle {
 heatmap-grid rect {
     
     fill: #667080;
+    
+}
+
+/**************************/
+/***** !vertical nav ******/
+/**************************/
+
+/* nav item */
+vertical-nav nav a {
+    
+    color: rgb(80,80,80);
+    
+}
+
+/* active nav item */
+vertical-nav nav a.active {
+    
+    color: rgb(0,0,0);
+    
+}
+
+/* active nav item marker */
+vertical-nav nav a.active:before {
+    
+    color: darkorange;
     
 }

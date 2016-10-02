@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*************************************** vertical-nav directive STYLE ***************************************/
+
+/* vertical nav directive specific styling. */
+
+/* !IMPORTS
+/* !GLOBAL
+/* !CUSTOM
+/* --- !vertical nav
+
+
+/******************************* !IMPORTS *******************************/
+
+/******************************* !GLOBALS *******************************/
+
+/******************************* !CUSTOM *******************************/
+
+/**************************/
+/***** !vertical nav ******/
+/**************************/
+
+/* nav wrap */
+vertical-nav {
+    
+    display: block;
+    padding: 2em;
+    
+}
+
+/* nav item */
+vertical-nav > nav > div > a {
+    
+    font-size: 0.8em;
+    font-weight: 700;
+    line-height: 2.5;
+    position: relative;
+    text-transform: uppercase;
+    
+}
+
+/* active nav item marker */
+vertical-nav > nav > div > a.active:before {
+    
+    color: darkorange;
+    content: '\25cf';
+    left: -1.25em;
+    position: absolute;
+    top: -0.6em;
+    
+}

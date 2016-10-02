@@ -1,21 +1,18 @@
-angular.module("panel-nav-directive", [])
+angular.module("vertical-nav-directive", [])
 
-.directive("panelNav", ["$state", "layoutService", "authenticationService", "$rootScope", function($state, layoutService, authenticationService, $rootScope) {
+.directive("verticalNav", ["$state", "layoutService", "$rootScope", function($state, layoutService, $rootScope) {
 	return {
 		restrict: "E",
 		scope: {
-			panels: "="
+			navItems: "="
 		},
-        templateUrl: "templates/app-global/panel-nav.html",
+        templateUrl: "templates/app-global/vertical-nav.html",
 	    controller: function($scope) {
-	   
-			// data objects
-	    	$scope.panelParam = $state.params.panel;
 	    	
 	    	// change the pane via navigation
-            $scope.changePanel = function(event, idx) {
+            $scope.changeItem = function($event, idx) {
                 
-                var panelParam = event.target.id;
+                var panelParam = $event.target.id;
                 var workspaceParam = $state.params.workspace;
 
 				// set scope
@@ -74,12 +71,12 @@ angular.module("panel-nav-directive", [])
 		link: function(scope, element, attr) {
 			
 			// watch for panel change
-            scope.$watch("panels", function(newData, oldData) {
+            scope.$watch("navItems", function(newData, oldData) {
                 
                 // async check
                 if (newData !== undefined) {
                     
-                    scope.panels = newData;
+                    scope.navItems = newData;
                     scope.panelParam = $state.params.panel;
                     
                 };

@@ -2,9 +2,7 @@
 var api_config = {
 	content_service_uri : "api/data/",
     layout_service : "api/workspace/",
-    authentication_service_uri : "api/persona/",
-    content_economic_service_uri: "api/data/economic/",
-    feedback_service_uri: "api/screenshot/"
+    authentication_service_uri : "api/persona/"
 }; 
 
 // mapbox development
@@ -33,7 +31,8 @@ var theme_config = {
 
 // states
 var state_config = {
-    start: "48af42"
+    workspace: "c00db0",
+    panel: "824c16"
 };
 
 // visualization

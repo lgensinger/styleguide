@@ -3,7 +3,7 @@ angular.module("authentication-service", [])
 .factory("authenticationService", ["$http", "$q", "$timeout", function ($http, $q, $timeout) {
 
     var urlBase = api_config.authentication_service_uri;
-    var loginKey = "gestaltUser";
+    var loginKey = "styleguide";
     
     return {
 		

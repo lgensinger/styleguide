@@ -9,10 +9,6 @@ import helper
 urls = (
 
     # /api/workspace
-
-    # /api/workspace/#/
-    #   where # == workspace.url_name
-    "([a-fA-F\d]{6})/", "single_workspace",
     
     # /api/workspace/persona/#/
     #   where # == persona.id
@@ -23,43 +19,6 @@ urls = (
     "([a-fA-F\d]{6})/panels/(\d+)/", "workspace_panels",
 
 )
-
-class single_workspace:
-    """ Extract a single workspace with a specific url_name.
-    input:
-        * workspace.url_name
-    output:
-        * workspace.id
-        * workspace.name
-        * persona.name        
-        * workspace.url_name
-    """
-    def GET(self, workspace_url_name, connection_string=helper.get_connection_string(os.environ['DATABASE_URL'])):
-        # connect to postgresql based on configuration in connection_string
-        connection = psycopg2.connect(connection_string)
-        # get a cursor to perform queries
-        self.cursor = connection.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
-        # execute query
-        self.cursor.execute("""
-            SELECT DISTINCT ON (w.id) w.id, wn.name, p.name AS persona_name, w.url_name
-            FROM """ + helper.table_prefix + """workspace AS w
-            LEFT JOIN """ + helper.table_prefix + """workspace_name AS wn
-            ON w.workspace_name_id = wn.id
-            LEFT JOIN """ + helper.table_prefix + """persona AS p
-            ON w.persona_id = p.id
-            WHERE w.id IS NOT NULL 
-            AND w.url_name = '""" + workspace_url_name + """'
-            ORDER BY w.id;        
-        """)
-        # obtain the data
-        data = self.cursor.fetchall()
-        # commit database changes
-        connection.commit()
-        # close cursor and connection
-        connection.close()
-        self.cursor.close()
-        # convert data to a string
-        return json.dumps(data)
 
 class persona_workspaces:
     """ Extract all the workspaces for a particular persona.
@@ -110,6 +69,7 @@ class workspace_panels:
         * panel.id
         * panel.name
         * panel.url_name
+        * panel.layout_name
         * workspace.url_name
         * workspace.persona_id
     """
@@ -123,6 +83,7 @@ class workspace_panels:
 		select wp.panel_id,
         pl.name,
         pl.url_name,
+        pl.layout_name,
         w.url_name as workspace_url_name,
         w.persona_id
         from """ + helper.table_prefix + """workspace_panel wp

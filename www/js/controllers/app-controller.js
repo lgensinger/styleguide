@@ -34,8 +34,10 @@ angular.module("app-controller", [])
         
     };
     
-    // get credentials from local storage
-    authenticationService.getCredentials().then(function(userData) {
+    // TODO remove hard coded persona if/when login is used
+    
+    // post credentials to local storage
+    authenticationService.postCredentials("anyone", 1).then(function(userData) {
         
         var user = {"user": userData.user, id: userData.id};
         var endpoint = "persona/" + user.id + "/";

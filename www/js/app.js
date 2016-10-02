@@ -75,28 +75,33 @@ app.config(function($stateProvider, $urlRouterProvider, $compileProvider) {
         templateUrl: "templates/app-global/app.html",
         controller: "appCtrl",
         params: {
-            t: theme_config.ui.start
+            t: theme_config.ui.workspace
         }
     })
 
     // panel
-    /*.state("app.panel", {
+    .state("app.panel", {
         url: "/{panel}",
         views: {
             "panel": {
-                templateProvider: function($http, $stateParams) {
-                    return $http.get("templates/panels/" + $stateParams.panel + ".html").then(function(template) {
-                        return template.data;
+                // TODO clean up service so this call isn't so crazy
+                templateProvider: function($http, $stateParams, layoutService, $rootScope, authenticationService) {
+                    return authenticationService.getCredentials().then(function(userData) {
+                        return layoutService.getStructure($stateParams.panel, { multi: "panels", single: "panel" }, $stateParams.workspace + "/panels/" + userData.id + "/", { key: "url_name", value: $stateParams.panel }).then(function(panelData) {
+                            return $http.get("templates/panels/" + panelData.layout_name + ".html").then(function(template) {
+                                return template.data;
+                            });
+                        });
                     });
                 },
                 controller: "panelCtrl"
-            },
+            }/*,
             "slide": {
                 templateUrl: "templates/app-global/slide-panel.html"
-            }
+            }*/
         }
-    });*/
+    });
 
-    $urlRouterProvider.otherwise("/" + state_config.start + "?t=" + theme_config.ui.start);
+    $urlRouterProvider.otherwise("/" + state_config.workspace + "/" + state_config.panel + "?t=" + theme_config.ui.start);
 
 });

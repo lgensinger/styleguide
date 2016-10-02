@@ -3,13 +3,12 @@ import web
 
 import panel
 import workspace
-#import screenshot
+import module
 
 urls = (
 
     "/api/workspace/", workspace.app,
-    #"/api/panel/", panel.app,
-  #  "/api/screenshot/", screenshot.app,
+    "/api/data/module/", module.app,
 
     # front-end routes to load angular app
     "/", "index",
