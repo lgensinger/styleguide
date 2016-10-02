@@ -1,3 +1,0 @@
-[submodule "www/js/directives/generator-angular"]
-	path = www/js/directives/generator-angular
-	url = https://github.com/lgensinger/generator-angular
