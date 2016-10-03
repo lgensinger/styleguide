@@ -158,7 +158,9 @@ button:active {
 /*************************/
 
 slide-panel section.left,
-slide-panel section.right {
+slide-panel section.right,
+/* panel sliding from bottom chlidren wrap */
+slide-panel section.bottom header {
   
     background: rgba(240,240,240,0.95);
     

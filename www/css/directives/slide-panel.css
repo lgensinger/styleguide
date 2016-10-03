@@ -21,41 +21,53 @@
 /**** !SLIDE PANEL ****/
 /**********************/
 
-slide-panel {
-  
+/* sliding panel */
+slide-panel section.bottom {
+    
+	height: 100%;
+	overflow: hidden;
+	position: fixed;
+    -webkit-transition: transform 0.6s;
+    -moz-transition: transform 0.6s;
+    -ms-transition: transform 0.6s;
+    -o-transition: transform 0.6s;
+	transition: transform 0.6s;
+	transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+	width: 100%;
+	z-index: 10;
+    
+}
+
+/* panel sliding from bottom */
+slide-panel section.show.bottom {
+    
+    -webkit-transform: translate3d(0, -100%, 0) translate3d(0, 150px, 0);
+    -moz-transform: translate3d(0, -100%, 0) translate3d(0, 150px, 0);
+    -ms-transform: translate3d(0, -100%, 0) translate3d(0, 150px, 0);
+    -o-transform: translate3d(0, -100%, 0) translate3d(0, 150px, 0);
+	transform: translate3d(0, -100%, 0) translate3d(0, 150px, 0);
+    
+}
+
+/* panel sliding from bottom chlidren wrap */
+slide-panel section.bottom header {
+    
+    bottom: 0;
     display: block;
-
-}
-
-slide-panel section {
-    
-    height: 100%;
-    padding: 1em;
-    position: absolute;
-    top: 0;
-    width: calc(500px - 2em);
-    z-index: 9999;
-
-    -webkit-transition: -webkit-transform ease 250ms;
-    -moz-transition: -webkit-transform ease 250ms;
-    -ms-transition: -webkit-transform ease 250ms;
-    -o-transition: -webkit-transform ease 250ms;
-    transition: -webkit-transform ease 250ms;
-    
-    -webkit-transition: transform ease 250ms;
-    -moz-transition: transform ease 250ms;
-    -ms-transition: transform ease 250ms;
-    -o-transition: transform ease 250ms;
-    transition: transform ease 250ms;
+	padding: 60px;
+	position: absolute;
+	width: calc(100% - 120px);
     
 }
 
+/* panel sliding from left */
 slide-panel section.left {
     
     left: calc(-500px - 2em);
     
 }
 
+/* panel sliding from left */
 slide-panel section.show.left {
     
     transform: translate3d(calc(500px + 2em), 0, 0);
@@ -66,12 +78,14 @@ slide-panel section.show.left {
     
 }
 
+/* panel sliding from right */
 slide-panel section.right {
   
     right: calc(-500px - 2em);
     
 }
 
+/* panel sliding from right */
 slide-panel section.show.right {
   
     transform: translate3d(calc(-500px - 2em), 0, 0);
@@ -80,4 +94,53 @@ slide-panel section.show.right {
     -o-transform: translate3d(calc(-500px - 2em), 0, 0);
     -moz-transform: translate3d(calc(-500px - 2em), 0, 0);
     
+}
+
+/* panel content transitions */
+slide-panel .close {
+    
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    -ms-transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+    transition: all 0.6s ease; 
+    
+}
+
+slide-panel header {
+    
+    -webkit-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease;
+    -ms-transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+    transition: all 0.6s ease; 
+    
+}
+
+/* close button */
+slide-panel .close {
+    
+    bottom: 1em;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 2em;
+    visibility: hidden;
+    
+}
+
+/* close button transitioned */
+slide-panel section.show.bottom header .close {
+	
+	pointer-events: all;
+	opacity: 1;
+	visibility: visible;
+	
+}
+
+/* header transitioned */
+slide-panel section.show.bottom header {
+	
+	padding-bottom: 0.75em;
+	
 }

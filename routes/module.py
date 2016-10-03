@@ -32,9 +32,11 @@ class persona_panel_module:
         self.cursor = connection.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
         # execute query
         self.cursor.execute("""
-		select m.name
+		select m.name,
+        m.url_name
         from """ + helper.table_prefix + """persona_panel_module ppm
         left join """ + helper.table_prefix + """module m on m.id = ppm.module_id
+        where ppm.panel_id = """ + panel_id + """
         limit """ + count + """;
         """)
         # obtain the data

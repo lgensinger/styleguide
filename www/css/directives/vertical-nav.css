@@ -25,7 +25,6 @@
 vertical-nav {
     
     display: block;
-    padding: 2em;
     
 }
 
@@ -44,9 +43,10 @@ vertical-nav > nav > div > a {
 vertical-nav > nav > div > a.active:before {
     
     color: darkorange;
+    font-size: 1.5em;
     content: '\25cf';
-    left: -1.25em;
+    left: -0.9em;
     position: absolute;
-    top: -0.6em;
+    top: -1em;
     
 }

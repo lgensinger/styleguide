@@ -1,6 +1,6 @@
 angular.module("vertical-nav-directive", [])
 
-.directive("verticalNav", ["$state", "layoutService", "$rootScope", function($state, layoutService, $rootScope) {
+.directive("verticalNav", ["$state", "layoutService", "$rootScope", "authenticationService", function($state, layoutService, $rootScope, authenticationService) {
 	return {
 		restrict: "E",
 		scope: {

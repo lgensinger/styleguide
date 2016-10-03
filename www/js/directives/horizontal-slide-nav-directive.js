@@ -8,12 +8,16 @@ angular.module("horizontal-slide-nav-directive", [])
 		},
         templateUrl: "templates/app-global/horizontal-slide-nav.html",
 	    controller: function($scope) {
-	   
+            
+            var userData;
+            	   
 			// get user data
             authenticationService.getCredentials().then(function(userData) {
+                
+                userData = userData;
             
-                // get all stories for panel and persona
-                contentService.getData("module/persona/" + userData.id + "/panel/" + $scope.parentId + "/count/5/").then(function(data) {console.log(data);
+                // get all modules for panel and persona
+                contentService.getData("module/persona/" + userData.id + "/panel/" + $scope.parentId + "/count/" + $state.params.c + "/").then(function(data) {
 
                     // set scope
                     $scope.navItems = data;
@@ -22,79 +26,53 @@ angular.module("horizontal-slide-nav-directive", [])
                 
             });
 	    	
-	    	// change the pane via navigation
-            $scope.changeItem = function($event, idx) {
-                
-                var panelParam = $event.target.id;
-                var workspaceParam = $state.params.workspace;
-
-				// set scope
-				$scope.panelParam = panelParam;
-				
-				// get credentials from local storage
-				authenticationService.getCredentials().then(function(userData) {
-
-					var user = userData;
-					var originUrl = $state.params.panel;
-					var destinationIdx = idx;
-					var objs = { multi: "panels", single: "panel" };
-					var endpoint = workspaceParam + "/panels/" + user.id + "/";
-					var check = { key: "url_name", value: panelParam };
-
-					// pull panel from stored panels in service
-					layoutService.getStructure(panelParam, objs, endpoint, check).then(function(data) {
-
-						// origin panel
-						var origin = data;
-
-						// check all panels
-						angular.forEach($scope.panels, function(value, key) {
-
-							// get destination index
-							if (origin.id == value.id) {
-
-								var originIdx = key;
-
-								// check indicies to resolve animation direction
-								if (destinationIdx < originIdx) {
-
-									//$ionicViewSwitcher.nextDirection(["back"]);
-
-								} else if (destinationIdx > originIdx) {
-
-									//$ionicViewSwitcher.nextDirection(["forward"]);
-
-								} else {
-
-									//$ionicViewSwitcher.nextDirection(["enter"]);
-
-								};
-
-							};
-
-						});
-
-					});
-					
-				});
-                
-            };
-	    	
 	    },
 		link: function(scope, element, attr) {
+            
+            // change the pane via navigation
+            scope.changeItem = function(event, idx) {
+                
+                var workspaceParam = $state.params.workspace;
+                var moduleParam = event.target.id;
+                var currentItemEl = angular.element(event.target);
+                var currentItemParentId
+
+				// set scope
+				scope.moduleParam = moduleParam;
+                
+                // add active class
+                currentItemEl.addClass("active");
+                
+                // remove active class from all other modules
+                
+                contentService.getData("panel/" + workspaceParam + "/urls/true/").then(function(data) {
+                    
+                    scope.urlList = data[0].urls;
+                    
+                });
+                
+            };
+            
+            // put all urls in a string to match
+            // this allows a check to see if any active module
+            // is in this horizontal group and thus remove active class
+            // when clicking between different panels
+            /*var urlList = data.map(function(d) {
+                return d.url_name;
+            });
 			
 			// watch for panel change
-            scope.$watch("navItems", function(newData, oldData) {
+            /*scope.$watch("navItems", function(newData, oldData) {
                 
                 // async check
                 if (newData !== undefined) {
                     
                     scope.navItems = newData;
-                    scope.panelParam = $state.params.panel;
+                    scope.moduleParam = $state.params.panel;
                     
                 };
                 
-            })
+            })*/
 			
 		}
 

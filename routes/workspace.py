@@ -16,7 +16,7 @@ urls = (
     
     # 0.0.0.0:8000/api/workspace/#/panels/#/
     #   where first # == workspace.url_name, second # == persona.id
-    "([a-fA-F\d]{6})/panels/(\d+)/", "workspace_panels",
+    "([a-fA-F\d]{6})/panels/(\d+)/", "workspace_panels"
 
 )
 
@@ -65,11 +65,13 @@ class workspace_panels:
     """ Extract all the panels for a particular workspace.
     input:
         * workspace.url_name
+        * persona.id
     output:
         * panel.id
         * panel.name
         * panel.url_name
         * panel.layout_name
+        * panel.show_in_nav
         * workspace.url_name
         * workspace.persona_id
     """
@@ -84,6 +86,7 @@ class workspace_panels:
         pl.name,
         pl.url_name,
         pl.layout_name,
+        pl.show_in_nav,
         w.url_name as workspace_url_name,
         w.persona_id
         from """ + helper.table_prefix + """workspace_panel wp

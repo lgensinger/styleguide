@@ -3,7 +3,7 @@ angular.module("slide-panel-directive", [])
 .directive("slidePanel", ["$state", "authenticationService", "layoutService", "$rootScope", function($state, authenticationService, layoutService, $rootScope) {
 	return {
 		restrict: "E",
-        template: "<section ng-class='{ show: visible, left: alignment === \"left\", right: alignment === \"right\" }'><ui-view name='slide'></ui-view></section>",
+        template: "<section ng-class='{ show: visible, left: alignment === \"left\", right: alignment === \"right\", bottom: alignment === \"bottom\" }'><ui-view name='slide'></ui-view></section>",
 		scope: {
             visible: "=",
             alignment: "@",
@@ -12,11 +12,11 @@ angular.module("slide-panel-directive", [])
         controller: function($scope) {
             
             // get PERSONA CONTENT data stored in service
-            authenticationService.getData("").then(function(data) {
+            /*authenticationService.getData("").then(function(data) {
 
                 $scope.personas = data;
 
-            });
+            });*/
             
             // log out
             $scope.logout = function() {

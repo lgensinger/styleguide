@@ -1,38 +1,31 @@
-<p class="menu-title">
-    Menu
-    <span ng-click="closePanel();">
-        <i class="ion-close-round"></i>
-    </span>
-</p>
-    
-<!-- USER PERSONA -->
-<p class="user">
-    <span>{{ content.user.user }}</span>
-    <span ng-click="logout();">Logout</span>
-</p>
-
-<!-- OTHER PERSONAS -->
-<!--<div ng-repeat="persona in personas">
-    <span data-persona-type="{{ persona.persona_type }}">{{ persona.persona_type }}</span>
-    <p ng-click="changeWorkspace(persona.workspace_id, persona.workspace_url_name, persona.default_panel, persona.id, persona.default_vis);">{{ persona.name }}</p>
-</div>-->
-
 <!-- UPDATE -->
-<div class="item item-divider">Update</div>
+<!--<div class="item item-divider">Update</div>-->
 
 <!-- THEME -->
-<div class="item menu-item">
+<!--<div class="item menu-item">
     
     <span>Theme</span>
     <span class="theme-change"
           ng-click="$parent.$parent.changeTheme(content.theme.opposite);">{{ content.theme.opposite }}</span>
 
-</div>
+</div>-->
 
 <!-- WORKSPACES -->
-<div class="item item-divider">Explore</div>
+<!--<div class="item item-divider">Explore</div>-->
 
-<div ng-repeat="workspace in content.workspaces"
+<!--<div ng-repeat="workspace in content.workspaces"
           class="item menu-item"
           ng-class="{ 'active': content.workspaceParam == workspace.url_name }"
-          ng-click="changeWorkspace(workspace.id, workspace.url_name, workspace.default_panel, workspace.persona_id, workspace.default_vis);">{{ workspace.name }}</div>
+          ng-click="changeWorkspace(workspace.id, workspace.url_name, workspace.default_panel, workspace.persona_id, workspace.default_vis);">{{ workspace.name }}</div>-->
+
+<header>
+    
+    <!-- PANEL NAV -->
+    <vertical-nav nav-items="content.panels"></vertical-nav>
+    
+    <!-- CLOSE HEADER -->
+    <a class="close" ng-click="$parent.$parent.closePanel();">
+        <i class="ion-close-round"></i>
+    </a>
+
+</header>

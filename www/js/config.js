@@ -31,8 +31,9 @@ var theme_config = {
 
 // states
 var state_config = {
-    workspace: "c00db0",
-    panel: "824c16"
+    workspace: "a455c1",
+    panel: "c4cb8e",
+    moduleCount: 10
 };
 
 // visualization

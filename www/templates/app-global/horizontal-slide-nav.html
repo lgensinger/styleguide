@@ -2,8 +2,7 @@
 	
     <a ng-repeat="item in navItems"
        id="{{ item.url_name }}"
-	   ui-sref="app.panel({ panel: item.url_name })" 
-	   ng-class="{ 'active': panelParam == item.url_name }"
+	   ui-sref="app.panel.module({ module: item.url_name })" 
        ng-click="changeItem($event, $index);">{{ item.name }}</a>
 
 </nav>

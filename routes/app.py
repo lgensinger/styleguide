@@ -9,6 +9,7 @@ urls = (
 
     "/api/workspace/", workspace.app,
     "/api/data/module/", module.app,
+    "/api/data/panel/", panel.app,
 
     # front-end routes to load angular app
     "/", "index",

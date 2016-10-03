@@ -1,25 +1,3 @@
-<p>standards</p>
-<!-- STORY -->
-<section ng-repeat="story in content" class="visual-form">
-        
-	<hgroup>
-        
-        <!-- STORY TITLE -->
-        <h2>{{ story.name }}</h2>
-        <p>{{ story.intro }}</p>
-    
-    </hgroup>
-	
-	<div>
-    
-		<!-- IDEA -->
-		<div ng-repeat="idea in story.ideas">
+<h2>Standards</h2>
 
-			<!-- CONTENT -->
-			<card-layout headline="idea.label" description="idea.description" poster="idea.svg_icon" vis-id="idea.id"></card-layout>
-
-		</div>
-		
-	</div>
-        
-</section>
+<ui-view name="module"></ui-view>

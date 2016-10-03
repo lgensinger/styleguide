@@ -20,6 +20,8 @@ app.run(function(amMoment, $rootScope) {
 
     // stop propagation of event to trigger menu
     // so menu doesn't auto hide after it's shown
+    // turn on if using left or right panel
+    /*
     document.addEventListener("keyup", function(e) {
 
         if(e.keyCode === 27) {
@@ -34,7 +36,7 @@ app.run(function(amMoment, $rootScope) {
 
         $rootScope.$broadcast("documentClicked", e.target);
 
-    });
+    });*/
 
     /****************/
     /**** MOMENT ****/
@@ -81,7 +83,7 @@ app.config(function($stateProvider, $urlRouterProvider, $compileProvider) {
 
     // panel
     .state("app.panel", {
-        url: "/{panel}",
+        url: "/{panel}?:c",
         views: {
             "panel": {
                 // TODO clean up service so this call isn't so crazy
@@ -95,13 +97,28 @@ app.config(function($stateProvider, $urlRouterProvider, $compileProvider) {
                     });
                 },
                 controller: "panelCtrl"
+            },
+            "slide": {
+                templateUrl: "templates/app-global/slide-panel.html"
+            }
+        }
+    })
+    
+    // module
+    .state("app.panel.module", {
+        url: "/{module}",
+        views: {
+            "panel": {
+                // TODO clean up service so this call isn't so crazy
+                template: "<p>module here</p>",
+                controller: "moduleCtrl"
             }/*,
             "slide": {
                 templateUrl: "templates/app-global/slide-panel.html"
             }*/
         }
-    });
+    })
 
-    $urlRouterProvider.otherwise("/" + state_config.workspace + "/" + state_config.panel + "?t=" + theme_config.ui.start);
+    $urlRouterProvider.otherwise("/" + state_config.workspace + "/" + state_config.panel + "?c=" + state_config.moduleCount + "&t=" + theme_config.ui.start);
 
 });

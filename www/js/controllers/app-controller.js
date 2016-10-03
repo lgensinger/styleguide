@@ -15,6 +15,7 @@ angular.module("app-controller", [])
     $scope.workspaceParam = workspaceParam;
     $scope.leftVisible = false;
     $scope.rightVisible = false;
+    $scope.bottomVisible = false;
     
     function setScope(user, workspaces, workspace, panels) {
         
@@ -29,7 +30,8 @@ angular.module("app-controller", [])
             user: user,
             theme: $scope.$parent.theme,
             workspaces: workspaces,
-            workspaceParam: workspaceParam
+            workspaceParam: workspaceParam,
+            panels: panels
         };
         
     };
@@ -59,7 +61,19 @@ angular.module("app-controller", [])
                 // get single workspace panels
                 layoutService.getStructures(panelEndpoint, objs).then(function(workspacePanels) {
                     
-                    var panels = workspacePanels;
+                    var panels = [];
+                    
+                    // loop through all panels
+                    angular.forEach(workspacePanels, function(value, key) {
+                        
+                        // check if should be included in nav
+                        if (value.show_in_nav) {
+                            
+                            this.push(value);
+                            
+                        };
+                        
+                    }, panels);
                     
                     // set scope
                     setScope(user, workspaces, workspace, panels);
@@ -79,8 +93,17 @@ angular.module("app-controller", [])
     };
 
     $scope.closePanel = function() {
+        
+        // hide panel
         $scope.leftVisible = false;
         $scope.rightVisible = false;
+        $scope.bottomVisible = false;
+        
+        // transition state to reload preview panel
+        $state.go("app.panel", {
+            workspace: $state.params.workspace,
+            panel: state_config.panel
+        });
     };
 
     $scope.showLeft = function(event) {
@@ -90,6 +113,11 @@ angular.module("app-controller", [])
 
     $scope.showRight = function(event) {
         $scope.rightVisible = true;
+        event.stopPropagation();
+    };
+    
+    $scope.showBottom = function(event) {
+        $scope.bottomVisible = true;
         event.stopPropagation();
     };
 
